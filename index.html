@@ -12,7 +12,10 @@ header{text-align:center;color:white;padding:5px}
 header h1{margin:5px 0;font-size:clamp(28px,6vw,46px)}
 .team{color:#fff;background:#ffffff18;border:1px solid #ffffff40;border-radius:14px;padding:10px;text-align:center;margin:10px 0}
 select{padding:8px;border:0;border-radius:8px;font-size:16px}
-.timer{text-align:center;background:#fff8d9;color:#7a5b00;border-radius:12px;padding:9px;font-size:18px;font-weight:bold;margin:10px 0}.progress{display:flex;gap:7px;margin:13px 0}.progress span{height:9px;flex:1;background:#ffffff35;border-radius:8px}.progress .on{background:#ffd166}
+.timer{text-align:center;background:#fff8d9;color:#7a5b00;border-radius:12px;padding:9px;font-size:18px;font-weight:bold;margin:10px 0}
+.progress{display:flex;gap:7px;margin:13px 0}
+.progress span{height:9px;flex:1;background:#ffffff35;border-radius:8px}
+.progress .on{background:#ffd166}
 .card{background:#fff;border-radius:22px;padding:22px;box-shadow:0 15px 40px #0005}
 .stage{display:none}.stage.active{display:block}
 .badge{display:inline-block;background:#087f8c;color:#fff;padding:7px 14px;border-radius:20px;font-weight:bold}
@@ -23,308 +26,1727 @@ input[type=text]{width:100%;padding:13px;border:2px solid #bfd0d6;border-radius:
 button{border:0;border-radius:11px;padding:12px 16px;font-size:16px;cursor:pointer}
 .primary{background:#087f8c;color:white;font-weight:bold;width:100%;margin-top:15px}
 .feedback{display:none;margin-top:14px;padding:14px;border-radius:11px;line-height:1.55}
-.good{display:block;background:#daf6df;color:#145b29}.bad{display:block;background:#ffe0e0;color:#8b2020}
+.good{display:block;background:#daf6df;color:#145b29}
+.bad{display:block;background:#ffe0e0;color:#8b2020}
 .next{display:none}
 .orbital-wrap{background:#f8fbfc;border:2px dashed #b9ccd2;border-radius:15px;padding:18px;margin-top:10px}
 .orbital-title{text-align:center;font-weight:bold;color:#087f8c;font-size:18px}
 .orbitals{display:flex;justify-content:center;gap:55px;margin:16px 0;flex-wrap:wrap}
-.group{text-align:center}.boxes{display:flex;gap:5px;justify-content:center}
-.orbital-box{margin:0;padding:0;color:#193447;line-height:1;background:#fff}.box{width:60px;height:60px;border:2px solid #214a58;border-radius:4px;background:white;display:flex;align-items:center;justify-content:center;font-size:31px;font-weight:bold;cursor:pointer;user-select:none}
+.group{text-align:center}
+.boxes{display:flex;gap:5px;justify-content:center}
+.orbital-box{margin:0;padding:0;color:#193447;line-height:1;background:#fff}
+.box{width:60px;height:60px;border:2px solid #214a58;border-radius:4px;background:white;display:flex;align-items:center;justify-content:center;font-size:31px;font-weight:bold;cursor:pointer;user-select:none}
 .box:hover{background:#eef9fb}
-.label{font-weight:bold;margin-top:7px;color:#087f8c}\n.orb-label, .orb-label-static{width:85px!important;padding:6px!important;text-align:center;font-size:15px!important;font-weight:bold}
+.label{font-weight:bold;margin-top:7px;color:#087f8c}
+.orb-label,.orb-label-static{width:85px!important;padding:6px!important;text-align:center;font-size:15px!important;font-weight:bold}
 .help{font-size:14px;color:#64747b;text-align:center}
 .keycard{text-align:center;background:#fff8d9;border:3px solid #f1c94b;border-radius:18px;padding:18px;margin-top:15px}
-.key{font-size:70px}.keycode{font-size:32px;font-weight:bold;color:#9a6a00}
+.key{font-size:70px}
+.keycode{font-size:32px;font-weight:bold;color:#9a6a00}
 .code{font-size:40px;font-weight:bold;text-align:center;background:#eefafb;color:#087f8c;border-radius:15px;padding:18px}
 .final{text-align:center}
 textarea{width:100%;min-height:90px;padding:12px;border:2px solid #bfd0d6;border-radius:10px;font-size:17px;font-family:Arial}
 
-.teacher-panel{background:#fff;border-radius:18px;padding:18px;margin:10px 0;box-shadow:0 10px 30px #0004}.teacher-head{display:flex;justify-content:space-between;align-items:center;color:#075b70;font-size:20px}.teacher-actions{display:flex;gap:10px;margin:12px 0}.small{width:auto!important;margin:0!important;background:#087f8c;color:#fff}.room-code{text-align:center;font-size:24px;margin:8px}.qr-box{text-align:center;background:#f4fafb;border-radius:15px;padding:15px;margin:10px auto;max-width:280px}.qr-box canvas,.qr-box img{margin:auto}.leader-title{font-weight:bold;color:#075b70;margin:18px 0 8px}.leaderboard{display:grid;gap:8px}.leader-row{display:grid;grid-template-columns:1.25fr 80px 110px 90px 110px;gap:8px;padding:10px;border-radius:10px;background:#f2f8fa;align-items:center}.leader-row.fastest{background:#fff3bf}.empty{text-align:center;color:#65757c;padding:15px}.winner-box{background:#fff3bf;border:3px solid #f1c94b;border-radius:18px;padding:18px;text-align:center;margin:14px 0;font-size:20px}.winner-box .winner-name{font-size:30px;font-weight:800;color:#9a6a00}.winner-box .winner-time{font-size:26px;font-weight:800;color:#075b70;margin-top:6px}.student-mode{text-align:center;color:#fff;background:#ffffff18;border-radius:10px;padding:6px;margin:6px 0;font-size:13px}
+.teacher-panel{background:#fff;border-radius:18px;padding:18px;margin:10px 0;box-shadow:0 10px 30px #0004}
+.teacher-head{display:flex;justify-content:space-between;align-items:center;color:#075b70;font-size:20px}
+.teacher-actions{display:flex;gap:10px;margin:12px 0}
+.small{width:auto!important;margin:0!important;background:#087f8c;color:#fff}
+.room-code{text-align:center;font-size:24px;margin:8px}
+.qr-box{text-align:center;background:#f4fafb;border-radius:15px;padding:15px;margin:10px auto;max-width:280px}
+.qr-box canvas,.qr-box img{margin:auto}
+.leader-title{font-weight:bold;color:#075b70;margin:18px 0 8px}
+.leaderboard{display:grid;gap:8px}
+.leader-row{display:grid;grid-template-columns:1.25fr 80px 110px 90px 110px;gap:8px;padding:10px;border-radius:10px;background:#f2f8fa;align-items:center}
+.leader-row.fastest{background:#fff3bf}
+.empty{text-align:center;color:#65757c;padding:15px}
+.winner-box{background:#fff3bf;border:3px solid #f1c94b;border-radius:18px;padding:18px;text-align:center;margin:14px 0;font-size:20px}
+.winner-box .winner-name{font-size:30px;font-weight:800;color:#9a6a00}
+.winner-box .winner-time{font-size:26px;font-weight:800;color:#075b70;margin-top:6px}
+.student-mode{text-align:center;color:#fff;background:#ffffff18;border-radius:10px;padding:6px;margin:6px 0;font-size:13px}
 
-.orb-sublevel-input{width:100%;box-sizing:border-box;border:2px solid #bfd4df;border-radius:12px;padding:12px 14px;font-size:18px;text-align:center;margin-top:8px;background:#fff;color:#173b4d;}
-.orb-sublevel-input:focus{outline:none;border-color:#0b8798;}
- #startBtn{display:block}.team{position:relative}.teacher-panel .primary{width:auto}</style>
+.orb-sublevel-input{
+width:100%;
+box-sizing:border-box;
+border:2px solid #bfd4df;
+border-radius:12px;
+padding:12px 14px;
+font-size:18px;
+text-align:center;
+margin-top:8px;
+background:#fff;
+color:#173b4d;
+}
+.orb-sublevel-input:focus{outline:none;border-color:#0b8798}
+#startBtn{display:block}
+.team{position:relative}
+.teacher-panel .primary{width:auto}
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
+
 <body>
 <div class="app">
+
 <header>
 <div>ESCAPE ROOM HÓA HỌC</div>
-<button id="teacherEntry" onclick="showTeacherMode()" style="margin:8px auto;background:#ffd166;color:#183447;font-weight:bold;display:block">👩‍🏫 MÀN HÌNH GIÁO VIÊN</button>
+
+<button id="teacherEntry"
+onclick="showTeacherMode()"
+style="margin:8px auto;background:#ffd166;color:#183447;font-weight:bold;display:block">
+👩‍🏫 MÀN HÌNH GIÁO VIÊN
+</button>
+
 <h1>🔐 MẬT THƯ SULFUR</h1>
 <div>3 mật thư → 3 chìa khóa → hoàn thành nhiệm vụ</div>
 </header>
 
 <div class="team" id="studentBar">
 Đội:
-<select id="team"><option>Núi lửa</option><option>Đường sắt</option><option>Cao su</option><option>Diêm</option></select>
+<select id="team">
+<option>Núi lửa</option>
+<option>Đường sắt</option>
+<option>Cao su</option>
+<option>Diêm</option>
+</select>
 &nbsp; | &nbsp; Điểm: <b id="score">0</b>
 </div>
 
 <div id="teacherPanel" style="display:none" class="teacher-panel">
-  <div class="teacher-head"><b>👩‍🏫 MÀN HÌNH GIÁO VIÊN</b><span id="roomStatus">Chưa tạo phòng</span></div>
-  <div class="teacher-actions"><button class="primary small" onclick="createRoom()">🎮 TẠO PHÒNG CHƠI</button><button class="small" onclick="playSound('success')">🔊 Thử âm thanh</button><button class="small" onclick="exitTeacherMode()">↩️ THOÁT MÀN HÌNH GV</button></div>
-  <div class="room-code">Mã phòng: <b id="roomCode">------</b></div>
-  <div class="qr-box"><div id="qrcode"></div><div>HS quét mã QR để vào phòng</div></div>
-  <div class="leader-title">📊 THEO DÕI TRỰC TIẾP</div>
-  <div class="leader-row" style="font-weight:bold;background:#dff4f6;grid-template-columns:1.25fr 80px 110px 90px 110px">
-    <span>Đội</span><span>Điểm</span><span>Trạng thái</span><span>Mật thư</span><span>Thời gian</span>
-  </div>
-  <div id="leaderboard" class="leaderboard"><div class="empty">Chưa có đội tham gia. Hãy cho HS quét QR.</div></div>
-  <div class="leader-title">🏆 ĐỘI THẮNG</div>
-  <div id="winnerBox" class="winner-box"><div>⏳ Chưa có đội hoàn thành</div><div class="winner-time">Thời gian sẽ hiển thị khi đội đầu tiên hoàn thành.</div></div>
-  <div class="leader-title">🏆 KẾT QUẢ CHUNG CUỘC – XẾP THEO THỜI GIAN</div>
-  <div id="finalResults" class="leaderboard"><div class="empty">Chưa có đội hoàn thành.</div></div>
+
+<div class="teacher-head">
+<b>👩‍🏫 MÀN HÌNH GIÁO VIÊN</b>
+<span id="roomStatus">Chưa tạo phòng</span>
 </div>
 
-<div id="studentModeBadge" class="student-mode">📱 Chọn đội để bắt đầu</div><button id="startBtn" class="primary" onclick="startGame()">▶️ BẮT ĐẦU TRÒ CHƠI – 3 PHÚT</button>
-<div class="timer">⏱️ Thời gian còn lại của toàn bộ trò chơi: <b id="timer">03:00</b></div>
-<div class="progress"><span id="prog1" class="on"></span><span id="prog2"></span><span id="prog3"></span></div>
+<div class="teacher-actions">
 
-<!-- STAGE 1 -->
+<button class="primary small" onclick="createRoom()">
+🎮 TẠO PHÒNG CHƠI
+</button>
+
+<button class="small" onclick="playSound('success')">
+🔊 Thử âm thanh
+</button>
+
+<button class="small" onclick="exitTeacherMode()">
+↩️ THOÁT MÀN HÌNH GV
+</button>
+
+</div>
+
+<div class="room-code">
+Mã phòng: <b id="roomCode">------</b>
+</div>
+
+<div class="qr-box">
+<div id="qrcode"></div>
+<div>HS quét mã QR để vào phòng</div>
+</div>
+
+<div class="leader-title">
+📊 THEO DÕI TRỰC TIẾP
+</div>
+
+<div class="leader-row"
+style="font-weight:bold;background:#dff4f6;grid-template-columns:1.25fr 80px 110px 90px 110px">
+
+<span>Đội</span>
+<span>Điểm</span>
+<span>Trạng thái</span>
+<span>Mật thư</span>
+<span>Thời gian</span>
+
+</div>
+
+<div id="leaderboard" class="leaderboard">
+<div class="empty">
+Chưa có đội tham gia. Hãy cho HS quét QR.
+</div>
+</div>
+
+<div class="leader-title">
+🏆 ĐỘI THẮNG
+</div>
+
+<div id="winnerBox" class="winner-box">
+<div>⏳ Chưa có đội hoàn thành</div>
+<div class="winner-time">
+Thời gian sẽ hiển thị khi đội đầu tiên hoàn thành.
+</div>
+</div>
+
+<div class="leader-title">
+🏆 KẾT QUẢ CHUNG CUỘC – XẾP THEO THỜI GIAN
+</div>
+
+<div id="finalResults" class="leaderboard">
+<div class="empty">
+Chưa có đội hoàn thành.
+</div>
+</div>
+
+</div>
+
+<div id="studentModeBadge" class="student-mode">
+📱 Chọn đội để bắt đầu
+</div>
+
+<button id="startBtn"
+class="primary"
+onclick="startGame()">
+▶️ BẮT ĐẦU TRÒ CHƠI – 3 PHÚT
+</button>
+
+<div class="timer">
+⏱️ Thời gian còn lại của toàn bộ trò chơi:
+<b id="timer">03:00</b>
+</div>
+
+<div class="progress">
+<span id="prog1" class="on"></span>
+<span id="prog2"></span>
+<span id="prog3"></span>
+</div>
+
+<!-- MẬT THƯ 1 -->
+
 <section id="s1" class="card stage active">
+
 <span class="badge">🔐 MẬT THƯ 1</span>
+
 <h2>CẤU TẠO NGUYÊN TỬ</h2>
+
 <div class="clue">
-<strong>Nhiệm vụ:</strong> Viết cấu hình electron của nguyên tử S (Z = 16) và biểu diễn sự phân bố electron vào các orbital.
+
+<strong>Nhiệm vụ:</strong>
+Viết cấu hình electron của nguyên tử S (Z = 16)
+và biểu diễn sự phân bố electron vào các orbital.
+
 <br><br>
-<strong>Không có đáp án lựa chọn.</strong> Đội tự ghi và tự điền electron vào ô orbital.
+
+<strong>Không có đáp án lựa chọn.</strong>
+Đội tự ghi và tự điền electron vào ô orbital.
+
 </div>
 
-<div class="q">1. Tự viết cấu hình electron của nguyên tử sulfur:</div>
-<input id="config" type="text" placeholder="Ví dụ cách viết: 1s2 2s2 2p6 ...">
+<div class="q">
+1. Tự viết cấu hình electron của nguyên tử sulfur:
+</div>
 
-<div class="q">2. Biểu diễn electron lớp ngoài cùng vào orbital</div>
+<input id="config"
+type="text"
+placeholder="Ví dụ cách viết: 1s2 2s2 2p6 ...">
+
+<div class="q">
+2. Biểu diễn electron lớp ngoài cùng vào orbital
+</div>
+
 <div class="orbital-wrap">
-<div class="orbital-title">Lớp ngoài cùng</div>
+
+<div class="orbital-title">
+Lớp ngoài cùng
+</div>
+
 <div class="orbitals">
+
 <div class="group">
-<div class="boxes"><button type="button" class="box orbital-box" id="sbox" onclick="cycleOrbital(this)"> </button></div>
-<input id="subS" class="orb-sublevel-input" type="text" placeholder="Phân lớp electron">
-</div>
-<div class="group">
+
 <div class="boxes">
-<button type="button" class="box orbital-box" id="orbP1" onclick="cycleOrbital(this)"> </button>
-<button type="button" class="box orbital-box" id="orbP2" onclick="cycleOrbital(this)"> </button>
-<button type="button" class="box orbital-box" id="orbP3" onclick="cycleOrbital(this)"> </button>
+
+<button
+type="button"
+class="box orbital-box"
+id="sbox"
+onclick="cycleOrbital(this)">
+</button>
+
 </div>
-<input id="subP" class="orb-sublevel-input" type="text" placeholder="Phân lớp electron">
+
+<input
+id="subS"
+class="orb-sublevel-input"
+type="text"
+placeholder="Phân lớp electron">
+
 </div>
+
+<div class="group">
+
+<div class="boxes">
+
+<button
+type="button"
+class="box orbital-box"
+id="orbP1"
+onclick="cycleOrbital(this)">
+</button>
+
+<button
+type="button"
+class="box orbital-box"
+id="orbP2"
+onclick="cycleOrbital(this)">
+</button>
+
+<button
+type="button"
+class="box orbital-box"
+id="orbP3"
+onclick="cycleOrbital(this)">
+</button>
+
 </div>
-<div class="help">Nhấp vào từng ô để điền mũi tên: trống → ↑ → ↑↓ → trống. Với 3p, hãy tuân thủ quy tắc Hund.</div>
+
+<input
+id="subP"
+class="orb-sublevel-input"
+type="text"
+placeholder="Phân lớp electron">
+
+</div>
+
+</div>
+
+<div class="help">
+Nhấp vào từng ô để điền mũi tên:
+trống → ↑ → ↑↓ → trống.
+Với 3p, hãy tuân thủ quy tắc Hund.
+</div>
+
 </div>
 
 <div id="f1" class="feedback"></div>
-<button class="primary" onclick="check1()">🔎 KIỂM TRA MẬT THƯ 1</button>
+
+<button class="primary" onclick="check1()">
+🔎 KIỂM TRA MẬT THƯ 1
+</button>
+
 <div id="next1" class="next">
-<div class="keycard"><div class="key">🗝️</div><div>CHÌA KHÓA 1</div><div class="keycode">1</div><p>Nguyên tử sulfur có <b>6 electron ở lớp ngoài cùng</b>.</p></div>
-<button class="primary" onclick="openStage(2)">Mở Mật thư 2 →</button>
+
+<div class="keycard">
+
+<div class="key">🗝️</div>
+
+<div>CHÌA KHÓA 1</div>
+
+<div class="keycode">1</div>
+
+<p>
+Nguyên tử sulfur có
+<b>6 electron ở lớp ngoài cùng</b>.
+</p>
+
 </div>
+
+<button class="primary" onclick="openStage(2)">
+Mở Mật thư 2 →
+</button>
+
+</div>
+
 </section>
 
-<!-- STAGE 2 -->
+<!-- MẬT THƯ 2 -->
+
 <section id="s2" class="card stage">
+
 <span class="badge">🔐 MẬT THƯ 2</span>
-<h2>SỐ OXI HÓA – TÍNH OXI HÓA, TÍNH KHỬ</h2>
+
+<h2>
+SỐ OXI HÓA – TÍNH OXI HÓA, TÍNH KHỬ
+</h2>
+
 <div class="clue">
-<strong>Nhiệm vụ:</strong> Dựa vào cấu hình electron và độ âm điện của nguyên tử S, hãy đưa ra dự đoán về:
-<br><b>a)</b> Số oxi hóa cao nhất của nguyên tử S trong hợp chất.
-<br><b>b)</b> Tính oxi hóa, tính khử của sulfur.
+
+<strong>Nhiệm vụ:</strong>
+Dựa vào cấu hình electron và độ âm điện của nguyên tử S,
+hãy đưa ra dự đoán về:
+
+<br>
+
+<b>a)</b>
+Số oxi hóa cao nhất của nguyên tử S trong hợp chất.
+
+<br>
+
+<b>b)</b>
+Tính oxi hóa, tính khử của sulfur
+(chỉ cần ghi đáp án, không cần giải thích).
+
 </div>
 
-<div class="answer" style="background:#fffaf0;border:2px solid #f0cf7a;border-radius:12px;padding:13px;margin-top:14px">
-Độ âm điện của sulfur: <b>2,58</b>.
+<div class="answer"
+style="background:#fffaf0;border:2px solid #f0cf7a;border-radius:12px;padding:13px;margin-top:14px">
+
+Độ âm điện của sulfur:
+<b>2,58</b>.
+
 </div>
 
-<div class="q">a) Số oxi hóa cao nhất của sulfur trong hợp chất:</div>
-<input id="oxmax" type="text" placeholder="HS tự ghi số oxi hóa">
+<div class="q">
+a) Số oxi hóa cao nhất của sulfur trong hợp chất:
+</div>
 
-<div class="q">b) Sulfur có tính oxi hóa, tính khử hay cả hai? Giải thích ngắn gọn:</div>
-<textarea id="redox" placeholder="HS tự ghi câu trả lời..."></textarea>
+<input
+id="oxmax"
+type="text"
+placeholder="HS tự ghi số oxi hóa">
 
-<div class="q">c) Ghi các số oxi hóa thường gặp của sulfur:</div>
-<input id="oxall" type="text" placeholder="HS tự ghi, ví dụ: ...">
+<div class="q">
+b) Sulfur có tính oxi hóa, tính khử hay cả hai?
+</div>
+
+<input
+id="redox"
+type="text"
+placeholder="HS tự ghi đáp án">
+
+<div class="q">
+c) Ghi các số oxi hóa thường gặp của sulfur:
+</div>
+
+<input
+id="oxall"
+type="text"
+placeholder="HS tự ghi, ví dụ: ...">
 
 <div id="f2" class="feedback"></div>
-<button class="primary" onclick="check2()">🔎 KIỂM TRA MẬT THƯ 2</button>
+
+<button class="primary" onclick="check2()">
+🔎 KIỂM TRA MẬT THƯ 2
+</button>
+
 <div id="next2" class="next">
-<div class="keycard"><div class="key">🗝️</div><div>CHÌA KHÓA 2</div><div class="keycode">1</div><p>Sulfur có số oxi hóa cao nhất thường gặp là <b>+6</b>.</p></div>
-<button class="primary" onclick="openStage(3)">Mở Mật thư 3 →</button>
+
+<div class="keycard">
+
+<div class="key">🗝️</div>
+
+<div>CHÌA KHÓA 2</div>
+
+<div class="keycode">1</div>
+
+<p>
+Sulfur có số oxi hóa cao nhất thường gặp là
+<b>+6</b>.
+</p>
+
 </div>
+
+<button class="primary" onclick="openStage(3)">
+Mở Mật thư 3 →
+</button>
+
+</div>
+
 </section>
 
-<!-- STAGE 3 -->
+<!-- MẬT THƯ 3 -->
+
 <section id="s3" class="card stage">
+
 <span class="badge">🔐 MẬT THƯ 3</span>
+
 <h2>CẤU TẠO PHÂN TỬ S₈</h2>
+
 <div class="clue">
-<strong>Nhiệm vụ:</strong> Trong tinh thể sulfur, các phân tử S₈ tương tác với nhau bằng lực van der Waals yếu. Hãy dự đoán về nhiệt độ nóng chảy (cao hay thấp) của đơn chất sulfur.
+
+<strong>Nhiệm vụ:</strong>
+Trong tinh thể sulfur, các phân tử S₈ tương tác với nhau
+bằng lực van der Waals yếu.
+Hãy dự đoán về nhiệt độ nóng chảy
+(cao hay thấp) của đơn chất sulfur.
+
 </div>
 
-<div class="q">Dự đoán nhiệt độ nóng chảy của sulfur:</div>
-<input id="mp" type="text" placeholder="HS tự ghi: cao hay thấp?">
-<p class="hint">💡 Dựa vào lực tương tác yếu giữa các phân tử S₈ để đưa ra dự đoán.</p>
+<div class="q">
+Dự đoán nhiệt độ nóng chảy của sulfur:
+</div>
+
+<input
+id="mp"
+type="text"
+placeholder="HS tự ghi: cao hay thấp?">
+
+<p class="hint">
+💡 Dựa vào lực tương tác yếu giữa các phân tử S₈ để đưa ra dự đoán.
+</p>
 
 <div id="f3" class="feedback"></div>
-<button class="primary" onclick="check3()">🔎 KIỂM TRA MẬT THƯ 3</button>
+
+<button class="primary" onclick="check3()">
+🔎 KIỂM TRA MẬT THƯ 3
+</button>
+
 <div id="next3" class="next">
-<div class="keycard"><div class="key">🗝️</div><div>CHÌA KHÓA 3</div><div class="keycode">3</div><p>113 °C là nhiệt độ nóng chảy của sulfur.</p></div>
-<button class="primary" onclick="finish()">🏆 GHÉP 3 CHÌA KHÓA</button>
+
+<div class="keycard">
+
+<div class="key">🗝️</div>
+
+<div>CHÌA KHÓA 3</div>
+
+<div class="keycode">3</div>
+
+<p>
+113 °C là nhiệt độ nóng chảy của sulfur.
+</p>
+
 </div>
+
+<button class="primary" onclick="finish()">
+🏆 GHÉP 3 CHÌA KHÓA
+</button>
+
+</div>
+
 </section>
 
+<!-- HOÀN THÀNH -->
+
 <section id="final" class="card stage final">
+
 <div class="key">🔓</div>
+
 <h2>GIẢI MÃ THÀNH CÔNG!</h2>
-<p>Đội đã thu thập đủ 3 chìa khóa:</p>
-<div class="keycard"><div>🗝️ Chìa khóa 1</div><b>1</b></div>
-<div class="keycard"><div>🗝️ Chìa khóa 2</div><b>1</b></div>
-<div class="keycard"><div>🗝️ Chìa khóa 3</div><b>3</b></div>
-<div class="code">Chìa khóa: 1 – 1 – 3</div><p>⏱️ Thời gian hoàn thành: <b id="finalTime">--:--</b> / 03:00</p>
-<p><b>113 °C là nhiệt độ nóng chảy của sulfur.</b></p>
-<button class="primary" onclick="location.reload()">🔄 Chơi lại</button>
+
+<p>
+Đội đã thu thập đủ 3 chìa khóa:
+</p>
+
+<div class="keycard">
+<div>🗝️ Chìa khóa 1</div>
+<b>1</b>
+</div>
+
+<div class="keycard">
+<div>🗝️ Chìa khóa 2</div>
+<b>1</b>
+</div>
+
+<div class="keycard">
+<div>🗝️ Chìa khóa 3</div>
+<b>3</b>
+</div>
+
+<div class="code">
+Chìa khóa: 1 – 1 – 3
+</div>
+
+<p>
+⏱️ Thời gian hoàn thành:
+<b id="finalTime">--:--</b> / 03:00
+</p>
+
+<p>
+<b>113 °C là nhiệt độ nóng chảy của sulfur.</b>
+</p>
+
+<button class="primary" onclick="location.reload()">
+🔄 Chơi lại
+</button>
+
 </section>
+
 </div>
 
 <script>
-// Âm thanh tạo trực tiếp bằng Web Audio API, không cần tải file âm thanh.
-let audioCtx;
-function beep(freq=700,duration=0.12,type='sine'){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)(); const o=audioCtx.createOscillator(),g=audioCtx.createGain(); o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.18,audioCtx.currentTime+.01);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration+.02);}catch(e){}}
-function playSound(kind){ if(kind==='success'){beep(660,.12);setTimeout(()=>beep(880,.18),130)} else if(kind==='error'){beep(220,.2,'square')} else if(kind==='tick'){beep(520,.05)} else {beep(440,.08)} }
-function speak(text){try{const u=new SpeechSynthesisUtterance(text);u.lang='vi-VN';u.rate=1.05;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 
-let mode=new URLSearchParams(location.search).get('role')||'student';
-let roomFromUrl=new URLSearchParams(location.search).get('room')||'';
-let ws=null, roomId=roomFromUrl, participants={};
-function showTeacherMode(){mode='teacher'; history.replaceState(null,'',location.pathname+'?role=teacher'); setupMode();}
-function exitTeacherMode(){mode='student'; history.replaceState(null,'',location.pathname); document.getElementById('teacherPanel').style.display='none'; document.getElementById('studentBar').style.display='block'; document.getElementById('studentModeBadge').style.display='block'; document.getElementById('startBtn').style.display='block'; document.querySelectorAll('.card').forEach(x=>x.style.display='none'); document.getElementById('s1').style.display='block'; document.getElementById('s1').classList.add('active'); document.querySelector('.timer').style.display='block'; document.querySelector('.progress').style.display='flex';}
-function setupMode(){if(mode==='teacher'){document.getElementById('teacherPanel').style.display='block';document.getElementById('studentBar').style.display='none';document.getElementById('studentModeBadge').style.display='none';document.querySelectorAll('.card,.timer,.progress,#startBtn').forEach(x=>x.style.display='none');}else{document.getElementById('teacherPanel').style.display='none';if(roomFromUrl) connectStudent(roomFromUrl);}}
-function makeRoomId(){return 'sulfur-'+Math.random().toString(36).slice(2,8).toUpperCase()}
-function wsUrl(){return (location.protocol==='https:'?'wss://':'ws://')+location.host}
-function createRoom(){
- roomId=makeRoomId(); document.getElementById('roomCode').textContent=roomId; document.getElementById('roomStatus').textContent='🟢 Phòng đã tạo – HS có thể quét QR';
- const join=location.origin+location.pathname+'?role=student&room='+encodeURIComponent(roomId); const qr=document.getElementById('qrcode'); qr.innerHTML=''; const img=document.createElement('img'); img.width=220; img.height=220; img.alt='Mã QR'; img.src='https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data='+encodeURIComponent(join); qr.appendChild(img); const u=document.createElement('div');u.style.fontSize='11px';u.style.wordBreak='break-all';u.textContent=join;qr.appendChild(u);
- connectTeacher();
+// =============================
+// ÂM THANH
+// =============================
+
+let audioCtx;
+
+function beep(freq=700,duration=0.12,type='sine'){
+
+try{
+
+audioCtx=audioCtx||
+new (window.AudioContext||window.webkitAudioContext)();
+
+const o=audioCtx.createOscillator();
+const g=audioCtx.createGain();
+
+o.type=type;
+o.frequency.value=freq;
+
+g.gain.setValueAtTime(
+.0001,
+audioCtx.currentTime
+);
+
+g.gain.exponentialRampToValueAtTime(
+.18,
+audioCtx.currentTime+.01
+);
+
+g.gain.exponentialRampToValueAtTime(
+.0001,
+audioCtx.currentTime+duration
+);
+
+o.connect(g);
+g.connect(audioCtx.destination);
+
+o.start();
+
+o.stop(
+audioCtx.currentTime+duration+.02
+);
+
+}catch(e){}
+
 }
-function connectTeacher(){ws=new WebSocket(wsUrl());ws.onopen=()=>ws.send(JSON.stringify({type:'teacher',room:roomId}));ws.onmessage=e=>{const d=JSON.parse(e.data);if(d.type==='state'){participants[d.team]=d;renderLeaderboard()}else if(d.type==='snapshot'){participants={};(d.players||[]).forEach(x=>participants[x.team]=x);renderLeaderboard()}};ws.onclose=()=>document.getElementById('roomStatus').textContent='🔴 Mất kết nối máy chủ';}
-function connectStudent(id){document.getElementById('studentModeBadge').textContent='📱 Đã vào phòng: '+id;ws=new WebSocket(wsUrl());ws.onopen=()=>{ws.send(JSON.stringify({type:'student',room:id,team:document.getElementById('team').value}));document.getElementById('studentModeBadge').textContent='🟢 Đã kết nối phòng: '+id};ws.onclose=()=>document.getElementById('studentModeBadge').textContent='⚠️ Mất kết nối phòng';}
-function sendState(event){if(!ws||ws.readyState!==1)return;ws.send(JSON.stringify({type:'state',room:roomId,team:document.getElementById('team').value,score,stage:currentStage,finished:!!totalFinishedSeconds,time:totalFinishedSeconds||null,elapsed:elapsedSeconds(),remaining:remainingSeconds(),gameStarted,done:[done1,done2,done3],event,ts:Date.now()}));}
-function renderLeaderboard(){const el=document.getElementById('leaderboard');const order=['Núi lửa','Đường sắt','Cao su','Diêm'];const arr=order.map(t=>participants[t]||{team:t,score:0,stage:0,finished:false,time:null,elapsed:0,gameStarted:false}).sort((a,b)=>a.finished!==b.finished?(a.finished?-1:1):a.finished&&b.finished?a.time-b.time:b.gameStarted!==a.gameStarted?(a.gameStarted?-1:1):b.elapsed-a.elapsed);el.innerHTML=arr.map((x,i)=>`<div class="leader-row ${x.finished&&i===0?'fastest':''}"><b>${x.finished&&i===0?'🏆 ':''}${x.team}</b><span>${x.score}</span><span>${x.finished?'🏁 Hoàn thành':x.gameStarted?'▶️ Đang chơi':'Chưa vào'}</span><span>${x.gameStarted?('Mật thư '+x.stage):'—'}</span><span>⏱️ ${x.finished?formatTime(x.time):x.gameStarted?formatTime(x.elapsed):'--:--'}</span></div>`).join('');const done=order.map(t=>participants[t]).filter(x=>x&&x.finished).sort((a,b)=>a.time-b.time);document.getElementById('finalResults').innerHTML=done.length?done.map((x,i)=>`<div class="leader-row ${i===0?'fastest':''}"><b>${i+1}. ${i===0?'🏆 ':''}${x.team}</b><span>${x.score} điểm</span><span>🏁 Hoàn thành</span><span>3/3</span><span><b>${formatTime(x.time)}</b></span></div>`).join(''):'<div class="empty">Chưa có đội hoàn thành.</div>';const wb=document.getElementById('winnerBox');wb.innerHTML=done.length?`<div>🏆 <b>ĐỘI CHIẾN THẮNG</b></div><div class="winner-name">${done[0].team}</div><div class="winner-time">⏱️ ${formatTime(done[0].time)}</div>`:'<div>⏳ Chưa có đội hoàn thành</div><div class="winner-time">Thời gian sẽ hiển thị khi đội đầu tiên hoàn thành.</div>';}
-let score=0,orb={s:0,p1:0,p2:0,p3:0},done1=false,done2=false,done3=false;
+
+function playSound(kind){
+
+if(kind==='success'){
+
+beep(660,.12);
+
+setTimeout(
+()=>beep(880,.18),
+130
+);
+
+}
+
+else if(kind==='error'){
+
+beep(220,.2,'square');
+
+}
+
+else if(kind==='tick'){
+
+beep(520,.05);
+
+}
+
+else{
+
+beep(440,.08);
+
+}
+
+}
+
+function speak(text){
+
+try{
+
+const u=new SpeechSynthesisUtterance(text);
+
+u.lang='vi-VN';
+u.rate=1.05;
+
+speechSynthesis.cancel();
+
+speechSynthesis.speak(u);
+
+}catch(e){}
+
+}
+
+// =============================
+// KẾT NỐI PHÒNG
+// =============================
+
+let mode=
+new URLSearchParams(location.search).get('role')||'student';
+
+let roomFromUrl=
+new URLSearchParams(location.search).get('room')||'';
+
+let ws=null;
+let roomId=roomFromUrl;
+let participants={};
+
+function showTeacherMode(){
+
+mode='teacher';
+
+history.replaceState(
+null,
+'',
+location.pathname+'?role=teacher'
+);
+
+setupMode();
+
+}
+
+function exitTeacherMode(){
+
+mode='student';
+
+history.replaceState(
+null,
+'',
+location.pathname
+);
+
+document.getElementById('teacherPanel').style.display='none';
+
+document.getElementById('studentBar').style.display='block';
+
+document.getElementById('studentModeBadge').style.display='block';
+
+document.getElementById('startBtn').style.display='block';
+
+document.querySelectorAll('.card').forEach(
+x=>x.style.display='none'
+);
+
+document.getElementById('s1').style.display='block';
+
+document.getElementById('s1').classList.add('active');
+
+document.querySelector('.timer').style.display='block';
+
+document.querySelector('.progress').style.display='flex';
+
+}
+
+function setupMode(){
+
+if(mode==='teacher'){
+
+document.getElementById('teacherPanel').style.display='block';
+
+document.getElementById('studentBar').style.display='none';
+
+document.getElementById('studentModeBadge').style.display='none';
+
+document.querySelectorAll(
+'.card,.timer,.progress,#startBtn'
+).forEach(
+x=>x.style.display='none'
+);
+
+}
+
+else{
+
+document.getElementById('teacherPanel').style.display='none';
+
+if(roomFromUrl)
+connectStudent(roomFromUrl);
+
+}
+
+}
+
+function makeRoomId(){
+
+return 'sulfur-' +
+Math.random()
+.toString(36)
+.slice(2,8)
+.toUpperCase();
+
+}
+
+function wsUrl(){
+
+return
+(location.protocol==='https:'?'wss://':'ws://')
++
+location.host;
+
+}
+
+function createRoom(){
+
+roomId=makeRoomId();
+
+document.getElementById('roomCode').textContent=roomId;
+
+document.getElementById('roomStatus').textContent=
+'🟢 Phòng đã tạo – HS có thể quét QR';
+
+const join=
+location.origin+
+location.pathname+
+'?role=student&room='+
+encodeURIComponent(roomId);
+
+const qr=
+document.getElementById('qrcode');
+
+qr.innerHTML='';
+
+const img=document.createElement('img');
+
+img.width=220;
+img.height=220;
+img.alt='Mã QR';
+
+img.src=
+'https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data='+
+encodeURIComponent(join);
+
+qr.appendChild(img);
+
+const u=document.createElement('div');
+
+u.style.fontSize='11px';
+u.style.wordBreak='break-all';
+u.textContent=join;
+
+qr.appendChild(u);
+
+connectTeacher();
+
+}
+
+function connectTeacher(){
+
+ws=new WebSocket(wsUrl());
+
+ws.onopen=()=>{
+
+ws.send(
+JSON.stringify({
+type:'teacher',
+room:roomId
+})
+);
+
+};
+
+ws.onmessage=e=>{
+
+const d=JSON.parse(e.data);
+
+if(d.type==='state'){
+
+participants[d.team]=d;
+
+renderLeaderboard();
+
+}
+
+else if(d.type==='snapshot'){
+
+participants={};
+
+(d.players||[]).forEach(
+x=>participants[x.team]=x
+);
+
+renderLeaderboard();
+
+}
+
+};
+
+ws.onclose=()=>{
+
+document.getElementById('roomStatus').textContent=
+'🔴 Mất kết nối máy chủ';
+
+};
+
+}
+
+function connectStudent(id){
+
+document.getElementById('studentModeBadge').textContent=
+'📱 Đã vào phòng: '+id;
+
+ws=new WebSocket(wsUrl());
+
+ws.onopen=()=>{
+
+ws.send(
+JSON.stringify({
+type:'student',
+room:id,
+team:document.getElementById('team').value
+})
+);
+
+document.getElementById('studentModeBadge').textContent=
+'🟢 Đã kết nối phòng: '+id;
+
+};
+
+ws.onclose=()=>{
+
+document.getElementById('studentModeBadge').textContent=
+'⚠️ Mất kết nối phòng';
+
+};
+
+}
+
+function sendState(event){
+
+if(!ws||ws.readyState!==1)
+return;
+
+ws.send(
+JSON.stringify({
+
+type:'state',
+
+room:roomId,
+
+team:
+document.getElementById('team').value,
+
+score,
+
+stage:currentStage,
+
+finished:!!totalFinishedSeconds,
+
+time:totalFinishedSeconds||null,
+
+elapsed:elapsedSeconds(),
+
+remaining:remainingSeconds(),
+
+gameStarted,
+
+done:[done1,done2,done3],
+
+event,
+
+ts:Date.now()
+
+})
+);
+
+}
+
+function renderLeaderboard(){
+
+const el=
+document.getElementById('leaderboard');
+
+const order=[
+'Núi lửa',
+'Đường sắt',
+'Cao su',
+'Diêm'
+];
+
+const arr=
+order
+.map(
+t=>participants[t]||
+{
+team:t,
+score:0,
+stage:0,
+finished:false,
+time:null,
+elapsed:0,
+gameStarted:false
+}
+)
+.sort(
+(a,b)=>
+a.finished!==b.finished
+?
+(a.finished?-1:1)
+:
+a.finished&&b.finished
+?
+a.time-b.time
+:
+b.gameStarted!==a.gameStarted
+?
+(a.gameStarted?-1:1)
+:
+b.elapsed-a.elapsed
+);
+
+el.innerHTML=
+
+arr.map(
+(x,i)=>
+
+`<div class="leader-row ${x.finished&&i===0?'fastest':''}">
+
+<b>
+${x.finished&&i===0?'🏆 ':''}${x.team}
+</b>
+
+<span>${x.score}</span>
+
+<span>
+${
+x.finished
+?'🏁 Hoàn thành'
+:
+x.gameStarted
+?'▶️ Đang chơi'
+:'Chưa vào'
+}
+</span>
+
+<span>
+${x.gameStarted?('Mật thư '+x.stage):'—'}
+</span>
+
+<span>
+⏱️
+${
+x.finished
+?formatTime(x.time)
+:
+x.gameStarted
+?formatTime(x.elapsed)
+:'--:--'
+}
+</span>
+
+</div>`
+
+).join('');
+
+const done=
+
+order
+.map(t=>participants[t])
+.filter(x=>x&&x.finished)
+.sort(
+(a,b)=>a.time-b.time
+);
+
+document.getElementById('finalResults').innerHTML=
+
+done.length
+
+?
+
+done.map(
+(x,i)=>
+
+`<div class="leader-row ${i===0?'fastest':''}">
+
+<b>
+${i+1}. ${i===0?'🏆 ':''}${x.team}
+</b>
+
+<span>
+${x.score} điểm
+</span>
+
+<span>
+🏁 Hoàn thành
+</span>
+
+<span>
+3/3
+</span>
+
+<span>
+<b>${formatTime(x.time)}</b>
+</span>
+
+</div>`
+
+).join('')
+
+:
+
+'<div class="empty">Chưa có đội hoàn thành.</div>';
+
+const wb=
+document.getElementById('winnerBox');
+
+wb.innerHTML=
+
+done.length
+
+?
+
+`<div>
+🏆 <b>ĐỘI CHIẾN THẮNG</b>
+</div>
+
+<div class="winner-name">
+${done[0].team}
+</div>
+
+<div class="winner-time">
+⏱️ ${formatTime(done[0].time)}
+</div>`
+
+:
+
+`<div>⏳ Chưa có đội hoàn thành</div>
+
+<div class="winner-time">
+Thời gian sẽ hiển thị khi đội đầu tiên hoàn thành.
+</div>`;
+
+}
+
+// =============================
+// BIẾN TRÒ CHƠI
+// =============================
+
+let score=0;
+
+let orb={
+s:0,
+p1:0,
+p2:0,
+p3:0
+};
+
+let done1=false;
+let done2=false;
+let done3=false;
+
 const TOTAL_GAME_SECONDS=180;
-let currentStage=1, gameStarted=false, gameLocked=false, totalStartTime=null, totalFinishedSeconds=0;
+
+let currentStage=1;
+let gameStarted=false;
+let gameLocked=false;
+let totalStartTime=null;
+let totalFinishedSeconds=0;
+
 let lastSentSecond=-1;
 
-function formatTime(sec){sec=Math.max(0,Math.floor(sec));let m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');return m+':'+s}
-function elapsedSeconds(){return gameStarted&&totalStartTime?Math.floor((Date.now()-totalStartTime)/1000):0}
-function remainingSeconds(){return Math.max(0,TOTAL_GAME_SECONDS-elapsedSeconds())}
-function updateTimer(){
-  if(!gameStarted||gameLocked){
-    document.getElementById('timer').textContent=gameStarted?formatTime(remainingSeconds()):'03:00';
-    return;
-  }
-  const rem=remainingSeconds();
-  document.getElementById('timer').textContent=formatTime(rem);
-  const sec=elapsedSeconds();
-  if(sec!==lastSentSecond){lastSentSecond=sec;sendState('heartbeat');}
-  if(rem<=0){
-    gameLocked=true; playSound('error'); speak('Hết giờ');
-    document.getElementById('timer').textContent='00:00';
-    const f=document.getElementById('f'+currentStage);
-    if(f){f.className='feedback bad';f.innerHTML='⏰ <b>Hết giờ!</b> Trò chơi đã kết thúc. Không thể tiếp tục trả lời.';}
-    sendState('timeout');
-  }
+// =============================
+// THỜI GIAN
+// =============================
+
+function formatTime(sec){
+
+sec=Math.max(
+0,
+Math.floor(sec)
+);
+
+let m=
+String(
+Math.floor(sec/60)
+).padStart(2,'0');
+
+let s=
+String(
+sec%60
+).padStart(2,'0');
+
+return m+':'+s;
+
 }
-setInterval(updateTimer,250);
+
+function elapsedSeconds(){
+
+return
+gameStarted&&totalStartTime
+?
+Math.floor(
+(Date.now()-totalStartTime)/1000
+)
+:
+0;
+
+}
+
+function remainingSeconds(){
+
+return Math.max(
+0,
+TOTAL_GAME_SECONDS-
+elapsedSeconds()
+);
+
+}
+
+function updateTimer(){
+
+if(!gameStarted||gameLocked){
+
+document.getElementById('timer').textContent=
+gameStarted
+?
+formatTime(remainingSeconds())
+:
+'03:00';
+
+return;
+
+}
+
+const rem=remainingSeconds();
+
+document.getElementById('timer').textContent=
+formatTime(rem);
+
+const sec=elapsedSeconds();
+
+if(sec!==lastSentSecond){
+
+lastSentSecond=sec;
+
+sendState('heartbeat');
+
+}
+
+if(rem<=0){
+
+gameLocked=true;
+
+playSound('error');
+
+speak('Hết giờ');
+
+document.getElementById('timer').textContent=
+'00:00';
+
+const f=
+document.getElementById(
+'f'+currentStage
+);
+
+if(f){
+
+f.className='feedback bad';
+
+f.innerHTML=
+'⏰ <b>Hết giờ!</b> Trò chơi đã kết thúc. Không thể tiếp tục trả lời.';
+
+}
+
+sendState('timeout');
+
+}
+
+}
+
+setInterval(
+updateTimer,
+250
+);
+
 updateTimer();
 
+// =============================
+// BẮT ĐẦU
+// =============================
+
 function startGame(){
-  if(gameStarted)return;
-  gameStarted=true; gameLocked=false; totalStartTime=Date.now(); totalFinishedSeconds=0;
-  document.getElementById('studentModeBadge').textContent='📱 Đang chơi – '+document.getElementById('team').value;
-  playSound('success'); sendState('start'); updateTimer();
+
+if(gameStarted)
+return;
+
+gameStarted=true;
+
+gameLocked=false;
+
+totalStartTime=Date.now();
+
+totalFinishedSeconds=0;
+
+document.getElementById(
+'studentModeBadge'
+).textContent=
+'📱 Đang chơi – '+
+document.getElementById('team').value;
+
+playSound('success');
+
+sendState('start');
+
+updateTimer();
+
 }
 
-document.getElementById('team').addEventListener('change',()=>{
-  if(!gameStarted) document.getElementById('studentModeBadge').textContent='📱 Chọn đội: '+document.getElementById('team').value;
-  sendState('team');
-});
+document
+.getElementById('team')
+.addEventListener(
+'change',
+()=>{
 
-function add(n){score+=n;document.getElementById('score').textContent=score;sendState('score')}
+if(!gameStarted)
+
+document.getElementById(
+'studentModeBadge'
+).textContent=
+'📱 Chọn đội: '+
+document.getElementById('team').value;
+
+sendState('team');
+
+}
+);
+
+// =============================
+// ĐIỂM
+// =============================
+
+function add(n){
+
+score+=n;
+
+document.getElementById(
+'score'
+).textContent=score;
+
+sendState('score');
+
+}
+
+// =============================
+// ORBITAL
+// =============================
+
 function cycleOrbital(el){
-  const order=['','↑','↑↓'];
-  const current=el.textContent.trim(); let i=order.indexOf(current); if(i<0)i=0;
-  el.textContent=order[(i+1)%order.length];
+
+const order=[
+'',
+'↑',
+'↑↓'
+];
+
+const current=
+el.textContent.trim();
+
+let i=
+order.indexOf(current);
+
+if(i<0)
+i=0;
+
+el.textContent=
+order[
+(i+1)%order.length
+];
+
 }
+
+// =============================
+// CHUẨN HÓA CÂU TRẢ LỜI
+// =============================
+
 function normalize(s){
-  return s
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .replace(/đ/g,'d')
-    .replace(/\s+/g,'')
-    .replace(/[₁]/g,'1')
-    .replace(/[₂]/g,'2')
-    .replace(/[₃]/g,'3')
-    .replace(/[₄]/g,'4')
-    .replace(/[⁶]/g,'6')
-    .replace(/[⁺]/g,'+')
-    .replace(/−/g,'-');
-}{return s.toLowerCase().replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
+
+return s
+.toLowerCase()
+
+// Chấp nhận cả "oxi" và "ôxi"
+.replace(/ôxi/g,'oxi')
+
+// Bỏ khoảng trắng
+.replace(/\s+/g,'')
+
+// Một số dạng chỉ số
+.replace(/[₁]/g,'1')
+.replace(/[₂]/g,'2')
+.replace(/[₃]/g,'3')
+.replace(/[₄]/g,'4')
+.replace(/[⁶]/g,'6')
+
+// Dấu cộng / trừ
+.replace(/[⁺]/g,'+')
+.replace(/−/g,'-');
+
+}
+
+// =============================
+// KIỂM TRA GAME
+// =============================
+
 function ensureGame(){
-  if(!gameStarted){startGame();}
-  if(gameLocked){return false;}
-  if(remainingSeconds()<=0){updateTimer();return false;}
-  return true;
+
+if(!gameStarted)
+startGame();
+
+if(gameLocked)
+return false;
+
+if(remainingSeconds()<=0){
+
+updateTimer();
+
+return false;
+
 }
+
+return true;
+
+}
+
+// =============================
+// MẬT THƯ 1
+// =============================
+
 function check1(){
- if(!ensureGame())return;
- let c=normalize(document.getElementById('config').value);
- let goodConfig=c.includes('1s2')&&c.includes('2s2')&&c.includes('2p6')&&c.includes('3s2')&&c.includes('3p4');
- let subS=normalize(document.getElementById('subS').value), subP=normalize(document.getElementById('subP').value);
- let goodSubS=(subS==='3s'||subS==='3s2'), goodSubP=(subP==='3p'||subP==='3p4');
- let goodOrb=document.getElementById('sbox').textContent==='↑↓';
- let ps=[document.getElementById('orbP1').textContent,document.getElementById('orbP2').textContent,document.getElementById('orbP3').textContent];
- let goodP=ps.filter(x=>x==='↑↓').length===1&&ps.filter(x=>x==='↑').length===2;
- let f=document.getElementById('f1');
- if(goodConfig&&goodSubS&&goodSubP&&goodOrb&&goodP){
-  if(!done1){add(10);done1=true}
-  f.className='feedback good';f.innerHTML='✅ <b>Giải đúng Mật thư 1!</b><br>Đã xác định đúng cấu hình electron và sự phân bố electron vào orbital.';
-  document.getElementById('next1').style.display='block'; playSound('success'); sendState('stage1');
- }else{f.className='feedback bad';f.innerHTML='❌ Chưa chính xác. Hãy kiểm tra lại bài làm và thử lại.';playSound('error');}
+
+if(!ensureGame())
+return;
+
+let c=
+normalize(
+document.getElementById('config').value
+);
+
+let goodConfig=
+c.includes('1s2')&&
+c.includes('2s2')&&
+c.includes('2p6')&&
+c.includes('3s2')&&
+c.includes('3p4');
+
+let subS=
+normalize(
+document.getElementById('subS').value
+);
+
+let subP=
+normalize(
+document.getElementById('subP').value
+);
+
+let goodSubS=
+(
+subS==='3s'||
+subS==='3s2'
+);
+
+let goodSubP=
+(
+subP==='3p'||
+subP==='3p4'
+);
+
+let goodOrb=
+document.getElementById('sbox')
+.textContent==='↑↓';
+
+let ps=[
+document.getElementById('orbP1').textContent,
+document.getElementById('orbP2').textContent,
+document.getElementById('orbP3').textContent
+];
+
+let goodP=
+ps.filter(x=>x==='↑↓').length===1&&
+ps.filter(x=>x==='↑').length===2;
+
+let f=
+document.getElementById('f1');
+
+if(
+goodConfig&&
+goodSubS&&
+goodSubP&&
+goodOrb&&
+goodP
+){
+
+if(!done1){
+
+add(10);
+
+done1=true;
+
 }
+
+f.className='feedback good';
+
+f.innerHTML=
+'✅ <b>Giải đúng Mật thư 1!</b><br>'+
+'Đã xác định đúng cấu hình electron và sự phân bố electron vào orbital.';
+
+document.getElementById(
+'next1'
+).style.display='block';
+
+playSound('success');
+
+sendState('stage1');
+
+}
+
+else{
+
+f.className='feedback bad';
+
+f.innerHTML=
+'❌ Chưa chính xác. Hãy kiểm tra lại bài làm và thử lại.';
+
+playSound('error');
+
+}
+
+}
+
+// =============================
+// MẬT THƯ 2
+// =============================
+
 function check2(){
- if(!ensureGame())return;
- let ox=normalize(document.getElementById('oxmax').value), all=normalize(document.getElementById('oxall').value), red=document.getElementById('redox').value.toLowerCase();
- let goodMax=/\+?6/.test(ox), goodAll=all.includes('-2')&&all.includes('0')&&all.includes('+4')&&all.includes('+6');
- let goodRed=(red.includes('oxi hóa')||red.includes('oxihoa'))&&(red.includes('khử')||red.includes('khu'));
- let f=document.getElementById('f2');
- if(goodMax&&goodAll&&goodRed){if(!done2){add(10);done2=true}f.className='feedback good';f.innerHTML='✅ <b>Giải đúng Mật thư 2!</b>';document.getElementById('next2').style.display='block';playSound('success');sendState('stage2');}
- else{f.className='feedback bad';f.innerHTML='❌ Chưa chính xác. Hãy kiểm tra lại các ý đã ghi và thử lại.';playSound('error');}
+
+if(!ensureGame())
+return;
+
+let ox=
+normalize(
+document.getElementById('oxmax').value
+);
+
+let all=
+normalize(
+document.getElementById('oxall').value
+);
+
+let red=
+normalize(
+document.getElementById('redox').value
+);
+
+// Số oxi hóa cao nhất +6
+let goodMax=
+/\+?6/.test(ox);
+
+// Các số oxi hóa thường gặp
+let goodAll=
+all.includes('-2')&&
+all.includes('0')&&
+all.includes('+4')&&
+all.includes('+6');
+
+// Chấp nhận:
+// "cả hai"
+// "cả hai tính"
+// "oxi hóa và khử"
+// "ôxi hóa và khử"
+// "oxi hoa va khu"
+// ...
+let goodRed=
+
+red.includes('cảhai')||
+red.includes('cahai')||
+(
+red.includes('oxihoa')&&
+red.includes('khu')
+);
+
+let f=
+document.getElementById('f2');
+
+if(
+goodMax&&
+goodAll&&
+goodRed
+){
+
+if(!done2){
+
+add(10);
+
+done2=true;
+
 }
+
+f.className='feedback good';
+
+f.innerHTML=
+'✅ <b>Giải đúng Mật thư 2!</b>';
+
+document.getElementById(
+'next2'
+).style.display='block';
+
+playSound('success');
+
+sendState('stage2');
+
+}
+
+else{
+
+f.className='feedback bad';
+
+f.innerHTML=
+'❌ Chưa chính xác. Hãy kiểm tra lại các ý đã ghi và thử lại.';
+
+playSound('error');
+
+}
+
+}
+
+// =============================
+// MẬT THƯ 3
+// =============================
+
 function check3(){
- if(!ensureGame())return;
- let m=document.getElementById('mp').value.toLowerCase().trim();
- let goodM=m.includes('thấp')||m.includes('thap');
- let f=document.getElementById('f3');
- if(goodM){if(!done3){add(10);done3=true}f.className='feedback good';f.innerHTML='✅ <b>Giải đúng Mật thư 3!</b>';document.getElementById('next3').style.display='block';playSound('success');sendState('stage3');}
- else{f.className='feedback bad';f.innerHTML='❌ Chưa chính xác. Hãy thử lại.';playSound('error');}
+
+if(!ensureGame())
+return;
+
+let m=
+document.getElementById('mp')
+.value
+.toLowerCase()
+.trim();
+
+let goodM=
+m.includes('thấp')||
+m.includes('thap');
+
+let f=
+document.getElementById('f3');
+
+if(goodM){
+
+if(!done3){
+
+add(10);
+
+done3=true;
+
 }
+
+f.className='feedback good';
+
+f.innerHTML=
+'✅ <b>Giải đúng Mật thư 3!</b>';
+
+document.getElementById(
+'next3'
+).style.display='block';
+
+playSound('success');
+
+sendState('stage3');
+
+}
+
+else{
+
+f.className='feedback bad';
+
+f.innerHTML=
+'❌ Chưa chính xác. Hãy thử lại.';
+
+playSound('error');
+
+}
+
+}
+
+// =============================
+// CHUYỂN MẬT THƯ
+// =============================
+
 function openStage(n){
- if(gameLocked)return;
- document.querySelectorAll('.stage').forEach(x=>x.classList.remove('active'));document.getElementById('s'+n).classList.add('active');
- for(let i=1;i<=3;i++)document.getElementById('prog'+i).classList.toggle('on',i<=n);
- currentStage=n; window.scrollTo(0,0); sendState('stage');
+
+if(gameLocked)
+return;
+
+document
+.querySelectorAll('.stage')
+.forEach(
+x=>x.classList.remove('active')
+);
+
+document
+.getElementById('s'+n)
+.classList.add('active');
+
+for(
+let i=1;
+i<=3;
+i++
+)
+
+document
+.getElementById('prog'+i)
+.classList.toggle(
+'on',
+i<=n
+);
+
+currentStage=n;
+
+window.scrollTo(0,0);
+
+sendState('stage');
+
 }
+
+// =============================
+// HOÀN THÀNH
+// =============================
+
 function finish(){
- if(!ensureGame())return;
- if(!(done1&&done2&&done3))return;
- totalFinishedSeconds=elapsedSeconds(); gameLocked=true;
- document.querySelectorAll('.stage').forEach(x=>x.classList.remove('active'));document.getElementById('final').classList.add('active');document.querySelectorAll('.progress span').forEach(x=>x.classList.add('on'));
- document.getElementById('finalTime').textContent=formatTime(totalFinishedSeconds);document.getElementById('timer').textContent=formatTime(Math.max(0,TOTAL_GAME_SECONDS-totalFinishedSeconds));
- playSound('success');speak('Chúc mừng đội đã giải mã thành công');sendState('finish');window.scrollTo(0,0);
+
+if(!ensureGame())
+return;
+
+if(!(done1&&done2&&done3))
+return;
+
+totalFinishedSeconds=
+elapsedSeconds();
+
+gameLocked=true;
+
+document
+.querySelectorAll('.stage')
+.forEach(
+x=>x.classList.remove('active')
+);
+
+document
+.getElementById('final')
+.classList.add('active');
+
+document
+.querySelectorAll('.progress span')
+.forEach(
+x=>x.classList.add('on')
+);
+
+document.getElementById(
+'finalTime'
+).textContent=
+formatTime(totalFinishedSeconds);
+
+document.getElementById(
+'timer'
+).textContent=
+formatTime(
+Math.max(
+0,
+TOTAL_GAME_SECONDS-
+totalFinishedSeconds
+)
+);
+
+playSound('success');
+
+speak(
+'Chúc mừng đội đã giải mã thành công'
+);
+
+sendState('finish');
+
+window.scrollTo(0,0);
+
 }
+
+// =============================
+// KHỞI ĐỘNG
+// =============================
+
 setupMode();
+
 </script>
+
 </body>
 </html>
