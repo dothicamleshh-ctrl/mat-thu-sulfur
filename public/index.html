@@ -2,2049 +2,1524 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>MẬT THƯ SULFUR</title>
-
 <style>
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#071b33,#0d3b66,#062b3d);
-  color:#fff;
-  min-height:100vh;
-}
-
-button,input{
-  font-family:inherit;
-}
-
-.hidden{
-  display:none!important;
-}
-
-.container{
-  width:min(1200px,94%);
-  margin:auto;
-}
-
-header{
-  text-align:center;
-  padding:20px 10px 10px;
-}
-
-header h1{
-  margin:0;
-  font-size:clamp(28px,5vw,52px);
-  color:#ffd54a;
-  text-shadow:0 3px 12px #000;
-}
-
-header p{
-  margin:8px 0;
-  font-size:18px;
-}
-
-.card{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:22px;
-  padding:22px;
-  margin:18px 0;
-  box-shadow:0 10px 35px rgba(0,0,0,.25);
-  backdrop-filter:blur(8px);
-}
-
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.team{
-  border:2px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:20px 10px;
-  text-align:center;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.team:hover{
-  transform:translateY(-4px);
-  background:rgba(255,255,255,.16);
-}
-
-.team.selected{
-  border-color:#ffd54a;
-  background:rgba(255,213,74,.18);
-  box-shadow:0 0 20px rgba(255,213,74,.25);
-}
-
-.team-icon{
-  font-size:45px;
-}
-
-.team-name{
-  font-size:20px;
-  font-weight:bold;
-  margin-top:8px;
-}
-
-input[type=text]{
-  width:100%;
-  padding:14px 16px;
-  border-radius:12px;
-  border:2px solid rgba(255,255,255,.25);
-  background:rgba(0,0,0,.25);
-  color:white;
-  font-size:17px;
-  outline:none;
-}
-
-input[type=text]:focus{
-  border-color:#ffd54a;
-}
-
-button{
-  border:0;
-  border-radius:12px;
-  padding:13px 20px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
-}
-
-button:hover{
-  transform:translateY(-2px);
-}
-
-.primary{
-  background:#ffd54a;
-  color:#17202a;
-}
-
-.success{
-  background:#39d98a;
-  color:#082016;
-}
-
-.danger{
-  background:#ff6262;
-  color:white;
-}
-
-.secondary{
-  background:#55a8ff;
-  color:white;
-}
-
-button:disabled{
-  opacity:.5;
-  cursor:not-allowed;
-  transform:none;
-}
-
-.info-bar{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin:15px 0;
-}
-
-.info-box{
-  background:rgba(0,0,0,.22);
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-}
-
-.info-label{
-  font-size:13px;
-  opacity:.75;
-}
-
-.info-value{
-  font-size:27px;
-  font-weight:bold;
-  color:#ffd54a;
-  margin-top:4px;
-}
-
-.stage-title{
-  font-size:27px;
-  color:#ffd54a;
-  margin-bottom:12px;
-}
-
-.question{
-  background:rgba(0,0,0,.2);
-  padding:18px;
-  border-radius:16px;
-  margin:15px 0;
-}
-
-.question h3{
-  margin-top:0;
-}
-
-.feedback{
-  margin-top:12px;
-  padding:13px;
-  border-radius:12px;
-  font-weight:bold;
-}
-
-.feedback.good{
-  background:rgba(57,217,138,.18);
-  border:1px solid #39d98a;
-}
-
-.feedback.bad{
-  background:rgba(255,98,98,.18);
-  border:1px solid #ff6262;
-}
-
-.orbitals{
-  display:flex;
-  gap:12px;
-  margin:15px 0;
-}
-
-.orbital{
-  width:70px;
-  height:70px;
-  border:2px solid #55a8ff;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px;
-  cursor:pointer;
-  background:rgba(0,0,0,.2);
-  user-select:none;
-}
-
-.orbital:hover{
-  border-color:#ffd54a;
-}
-
-.code-display{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:25px 0;
-}
-
-.code-box{
-  width:70px;
-  height:70px;
-  border-radius:15px;
-  background:#081b2b;
-  border:2px solid #ffd54a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px;
-  font-weight:bold;
-  color:#ffd54a;
-}
-
-.eliminated{
-  background:rgba(255,50,50,.18);
-  border:2px solid #ff5555;
-}
-
-.timer-danger{
-  color:#ff6565!important;
-  animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-  50%{transform:scale(1.08);}
-}
-
-.teacher-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:15px;
-  overflow:hidden;
-  border-radius:12px;
-}
-
-.teacher-table th,
-.teacher-table td{
-  padding:12px 8px;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  text-align:center;
-}
-
-.teacher-table th{
-  background:rgba(0,0,0,.3);
-  color:#ffd54a;
-}
-
-.teacher-table tr.active{
-  background:rgba(57,217,138,.12);
-}
-
-.teacher-table tr.eliminated-row{
-  background:rgba(255,80,80,.16);
-}
-
-.rank{
-  font-size:24px;
-}
-
-.winner{
-  padding:20px;
-  text-align:center;
-  border:2px solid #ffd54a;
-  border-radius:18px;
-  background:rgba(255,213,74,.12);
-  margin-top:20px;
-}
-
-.small{
-  font-size:14px;
-  opacity:.75;
-}
-
-.center{
-  text-align:center;
-}
-
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#061b2d,#0b4265);color:#fff}
+.hidden{display:none!important}
+.container{width:min(1200px,94%);margin:auto}
+header{text-align:center;padding:20px}
+header h1{margin:0;color:#ffd54a;font-size:42px}
+.card{background:rgba(255,255,255,.1);border-radius:20px;padding:20px;margin:15px 0}
+button{border:0;border-radius:10px;padding:12px 20px;font-weight:bold;cursor:pointer}
+.primary{background:#ffd54a;color:#111}
+.success{background:#39d98a;color:#062016}
+.danger{background:#ff6262;color:white}
+.secondary{background:#55a8ff;color:white}
+button:disabled{opacity:.5;cursor:not-allowed}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.team{padding:20px;text-align:center;border:2px solid #ffffff33;border-radius:15px;cursor:pointer;background:#ffffff0d}
+.team.selected{border-color:#ffd54a;background:#ffd54a22}
+.team-icon{font-size:42px}
+.team-name{font-size:18px;font-weight:bold;margin-top:8px}
+input[type=text]{width:100%;padding:13px;border-radius:10px;border:2px solid #ffffff44;background:#0004;color:#fff;font-size:16px}
+.info-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.info-box{background:#0004;padding:13px;border-radius:12px;text-align:center}
+.info-label{font-size:12px;opacity:.75}
+.info-value{font-size:25px;font-weight:bold;color:#ffd54a;margin-top:5px}
+.stage-title{font-size:26px;color:#ffd54a;font-weight:bold}
+.question{background:#0003;padding:16px;border-radius:12px;margin:12px 0}
+.feedback{margin-top:12px;padding:12px;border-radius:10px}
+.feedback.good{background:#39d98a22;border:1px solid #39d98a}
+.feedback.bad{background:#ff626222;border:1px solid #ff6262}
+.orbitals{display:flex;gap:12px;margin:15px 0}
+.orbital{width:65px;height:65px;border:2px solid #55a8ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:32px;cursor:pointer}
+.teacher-table{width:100%;border-collapse:collapse}
+.teacher-table th,.teacher-table td{padding:10px;border-bottom:1px solid #ffffff22;text-align:center}
+.teacher-table th{color:#ffd54a;background:#0004}
+.eliminated-row{background:#ff333322}
+.winner{text-align:center;border:2px solid #ffd54a;border-radius:15px;padding:20px}
+.code-display{display:flex;justify-content:center;gap:12px}
+.code-box{width:65px;height:65px;border:2px solid #ffd54a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:32px;color:#ffd54a}
 @media(max-width:800px){
-  .team-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .info-bar{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .teacher-table{
-    font-size:13px;
-  }
-
-  .teacher-table th,
-  .teacher-table td{
-    padding:8px 4px;
-  }
-}
-
-@media(max-width:500px){
-  .container{
-    width:96%;
-  }
-
-  .card{
-    padding:15px;
-  }
-
-  .team-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
-  }
-
-  .team{
-    padding:12px 5px;
-  }
-
-  .team-icon{
-    font-size:32px;
-  }
-
-  .team-name{
-    font-size:15px;
-  }
-
-  .info-value{
-    font-size:22px;
-  }
-
-  .orbital{
-    width:60px;
-    height:60px;
-  }
+.team-grid{grid-template-columns:repeat(2,1fr)}
+.info-bar{grid-template-columns:repeat(2,1fr)}
+.teacher-table{font-size:12px}
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
 <header>
-  <h1>🔐 MẬT THƯ SULFUR</h1>
-  <p>THOÁT KHỎI PHÒNG THÍ NGHIỆM</p>
+<h1>🔐 MẬT THƯ SULFUR</h1>
+<p>THOÁT KHỎI PHÒNG THÍ NGHIỆM</p>
 </header>
 
-<!-- ================= STUDENT ================= -->
+<!-- ================= HỌC SINH ================= -->
 
 <div id="studentApp">
 
-  <div id="joinCard" class="card">
-    <h2>📱 Tham gia trò chơi</h2>
+<div id="joinCard" class="card">
+<h2>📱 THAM GIA TRÒ CHƠI</h2>
+<p>Chọn đội của em:</p>
 
-    <p>Chọn đội của em:</p>
+<div class="team-grid">
 
-    <div class="team-grid">
+<div class="team" data-team="Núi lửa" onclick="selectTeam(this)">
+<div class="team-icon">🌋</div>
+<div class="team-name">Núi lửa</div>
+</div>
 
-      <div class="team" data-team="Núi lửa" onclick="selectTeam(this)">
-        <div class="team-icon">🌋</div>
-        <div class="team-name">Núi lửa</div>
-      </div>
+<div class="team" data-team="Đường sắt" onclick="selectTeam(this)">
+<div class="team-icon">🚆</div>
+<div class="team-name">Đường sắt</div>
+</div>
 
-      <div class="team" data-team="Đường sắt" onclick="selectTeam(this)">
-        <div class="team-icon">🚆</div>
-        <div class="team-name">Đường sắt</div>
-      </div>
+<div class="team" data-team="Cao su" onclick="selectTeam(this)">
+<div class="team-icon">🛞</div>
+<div class="team-name">Cao su</div>
+</div>
 
-      <div class="team" data-team="Cao su" onclick="selectTeam(this)">
-        <div class="team-icon">🛞</div>
-        <div class="team-name">Cao su</div>
-      </div>
+<div class="team" data-team="Diêm" onclick="selectTeam(this)">
+<div class="team-icon">🔥</div>
+<div class="team-name">Diêm</div>
+</div>
 
-      <div class="team" data-team="Diêm" onclick="selectTeam(this)">
-        <div class="team-icon">🔥</div>
-        <div class="team-name">Diêm</div>
-      </div>
+</div>
 
-    </div>
+<br>
 
-    <br>
+<input id="studentName" type="text" placeholder="Nhập tên học sinh">
 
-    <input
-      id="studentName"
-      type="text"
-      placeholder="Nhập tên học sinh"
-    >
+<br><br>
 
-    <br><br>
+<button class="primary" onclick="joinGame()">🚀 VÀO PHÒNG</button>
 
-    <button class="primary" onclick="joinGame()">
-      🚀 VÀO PHÒNG
-    </button>
+<div id="joinFeedback"></div>
+</div>
 
-    <div id="joinFeedback"></div>
-  </div>
 
-  <div id="gameArea" class="hidden">
+<div id="gameArea" class="hidden">
 
-    <div class="info-bar">
+<div class="info-bar">
 
-      <div class="info-box">
-        <div class="info-label">ĐỘI</div>
-        <div id="teamDisplay" class="info-value">---</div>
-      </div>
+<div class="info-box">
+<div class="info-label">ĐỘI</div>
+<div id="teamDisplay" class="info-value">---</div>
+</div>
 
-      <div class="info-box">
-        <div class="info-label">ĐIỂM</div>
-        <div id="score" class="info-value">0</div>
-      </div>
+<div class="info-box">
+<div class="info-label">ĐIỂM</div>
+<div id="score" class="info-value">0</div>
+</div>
 
-      <div class="info-box">
-        <div class="info-label">SỐ LẦN SAI</div>
-        <div id="wrongCount" class="info-value">0/3</div>
-      </div>
+<div class="info-box">
+<div class="info-label">SỐ LẦN SAI</div>
+<div id="wrongCount" class="info-value">0/3</div>
+</div>
 
-      <div class="info-box">
-        <div class="info-label">THỜI GIAN</div>
-        <div id="timer" class="info-value">03:00</div>
-      </div>
+<div class="info-box">
+<div class="info-label">THỜI GIAN</div>
+<div id="timer" class="info-value">03:00</div>
+</div>
 
-    </div>
+</div>
 
-    <div id="studentBadge" class="card center">
-      🔎 Đang chờ bắt đầu...
-    </div>
+<div id="studentBadge" class="card" style="text-align:center">
+🔎 Đang chờ bắt đầu...
+</div>
 
-    <div id="gameContent"></div>
+<div id="gameContent"></div>
 
-  </div>
+</div>
+</div>
+
+
+<!-- ================= GIÁO VIÊN ================= -->
+
+<div id="teacherApp" class="hidden">
+
+<div class="card">
+
+<h2>👩‍🏫 BẢNG ĐIỀU KHIỂN GIÁO VIÊN</h2>
+
+<p>
+Phòng:
+<b id="teacherRoom">---</b>
+</p>
+
+<div class="info-bar">
+
+<div class="info-box">
+<div class="info-label">SỐ ĐỘI</div>
+<div id="teamCount" class="info-value">0</div>
+</div>
+
+<div class="info-box">
+<div class="info-label">ĐÃ HOÀN THÀNH</div>
+<div id="finishedCount" class="info-value">0</div>
+</div>
+
+<div class="info-box">
+<div class="info-label">ĐANG CHƠI</div>
+<div id="playingCount" class="info-value">0</div>
+</div>
+
+<div class="info-box">
+<div class="info-label">BỊ LOẠI</div>
+<div id="eliminatedCount" class="info-value">0</div>
+</div>
+
+</div>
+
+<button class="primary" onclick="newRoom()">🔄 TẠO PHÒNG MỚI</button>
+
+<button class="secondary" onclick="copyStudentLink()">
+🔗 SAO CHÉP LINK HỌC SINH
+</button>
+
+<div id="studentLinkBox" class="card hidden"></div>
 
 </div>
 
 
-<!-- ================= TEACHER ================= -->
+<div class="card">
 
-<div id="teacherApp" class="hidden">
+<h2>📊 THEO DÕI CÁC ĐỘI</h2>
 
-  <div class="card">
+<table class="teacher-table">
 
-    <h2>👩‍🏫 BẢNG ĐIỀU KHIỂN GIÁO VIÊN</h2>
+<thead>
+<tr>
+<th>Hạng</th>
+<th>Đội</th>
+<th>Điểm</th>
+<th>Sai</th>
+<th>Trạng thái</th>
+<th>Mật thư</th>
+<th>Thời gian</th>
+</tr>
+</thead>
 
-    <p>
-      Phòng:
-      <b id="teacherRoom">---</b>
-    </p>
+<tbody id="teacherTableBody"></tbody>
 
-    <div class="info-bar">
+</table>
 
-      <div class="info-box">
-        <div class="info-label">SỐ ĐỘI</div>
-        <div id="teamCount" class="info-value">0</div>
-      </div>
+<div id="winnerBox"></div>
 
-      <div class="info-box">
-        <div class="info-label">ĐÃ HOÀN THÀNH</div>
-        <div id="finishedCount" class="info-value">0</div>
-      </div>
+</div>
 
-      <div class="info-box">
-        <div class="info-label">ĐANG CHƠI</div>
-        <div id="playingCount" class="info-value">0</div>
-      </div>
-
-      <div class="info-box">
-        <div class="info-label">BỊ LOẠI</div>
-        <div id="eliminatedCount" class="info-value">0</div>
-      </div>
-
-    </div>
-
-    <button class="primary" onclick="newRoom()">
-      🔄 TẠO PHÒNG MỚI
-    </button>
-
-    <button class="secondary" onclick="copyStudentLink()">
-      🔗 SAO CHÉP LINK HỌC SINH
-    </button>
-
-    <div id="studentLinkBox" class="card hidden"></div>
-
-  </div>
-
-  <div class="card">
-
-    <h2>📊 THEO DÕI CÁC ĐỘI</h2>
-
-    <table class="teacher-table">
-
-      <thead>
-        <tr>
-          <th>Hạng</th>
-          <th>Đội</th>
-          <th>Điểm</th>
-          <th>Sai</th>
-          <th>Trạng thái</th>
-          <th>Mật thư</th>
-          <th>Thời gian</th>
-        </tr>
-      </thead>
-
-      <tbody id="teacherTableBody"></tbody>
-
-    </table>
-
-    <div id="winnerBox"></div>
-
-  </div>
-
+</div>
 </div>
 
 
 <script>
 
-/* =========================================================
-   CẤU HÌNH
-========================================================= */
-
-const TEAMS = [
-  "Núi lửa",
-  "Đường sắt",
-  "Cao su",
-  "Diêm"
+const TEAMS=[
+"Núi lửa",
+"Đường sắt",
+"Cao su",
+"Diêm"
 ];
 
-const TOTAL_TIME = 180;
+const TOTAL_TIME=180;
 
-let selectedTeam = "";
-let studentName = "";
+let selectedTeam="";
+let studentName="";
 
-let score = 0;
-let wrongCount = 0;
-let eliminated = false;
+let score=0;
+let wrongCount=0;
+let eliminated=false;
 
-let currentStage = 1;
+let currentStage=1;
 
-let gameStarted = false;
-let gameFinished = false;
+let gameStarted=false;
+let gameFinished=false;
+let gameLocked=false;
 
-let startTime = null;
-let elapsed = 0;
+let startTime=null;
+let elapsed=0;
+let timerInterval=null;
 
-let timerInterval = null;
+let done1=false;
+let done2=false;
+let done3=false;
 
-let done1 = false;
-let done2 = false;
-let done3 = false;
+let roomCode="";
+let ws=null;
 
-let gameLocked = false;
+let teacherPlayers={};
 
-let roomCode = "";
-let ws = null;
-
-let teacherPlayers = {};
-
-
-/* =========================================================
-   TIỆN ÍCH
-========================================================= */
 
 function $(id){
-  return document.getElementById(id);
+return document.getElementById(id);
 }
+
 
 function normalize(s){
 
-  return String(s || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/đ/g,"d")
-    .replace(/\s+/g,"")
-    .replace(/−/g,"-")
-    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g,
-      d=>"⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(d))
-    .replace(/[₀₁₂₃₄₅₆₇₈₉]/g,
-      d=>"₀₁₂₃₄₅₆₇₈₉".indexOf(d));
+return String(s||"")
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/đ/g,"d")
+.replace(/\s+/g,"")
+.replace(/−/g,"-")
+.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g,
+d=>"⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(d))
+.replace(/[₀₁₂₃₄₅₆₇₈₉]/g,
+d=>"₀₁₂₃₄₅₆₇₈₉".indexOf(d));
 
 }
 
 
 function formatTime(sec){
 
-  sec=Math.max(0,Math.floor(sec));
+sec=Math.max(0,Math.floor(sec));
 
-  const m=String(Math.floor(sec/60)).padStart(2,"0");
-  const s=String(sec%60).padStart(2,"0");
-
-  return `${m}:${s}`;
+return String(Math.floor(sec/60)).padStart(2,"0")
++":"+String(sec%60).padStart(2,"0");
 
 }
 
 
-/* =========================================================
-   ÂM THANH
-========================================================= */
+/* ================= ÂM THANH ================= */
 
 let audioContext=null;
 
 function beep(freq,duration,type="sine"){
 
-  try{
+try{
 
-    if(!audioContext){
-      audioContext=new (window.AudioContext||window.webkitAudioContext)();
-    }
+if(!audioContext){
+audioContext=
+new(window.AudioContext||window.webkitAudioContext)();
+}
 
-    const osc=audioContext.createOscillator();
-    const gain=audioContext.createGain();
+const osc=audioContext.createOscillator();
+const gain=audioContext.createGain();
 
-    osc.type=type;
-    osc.frequency.value=freq;
+osc.type=type;
+osc.frequency.value=freq;
 
-    gain.gain.setValueAtTime(.001,audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(
-      .15,
-      audioContext.currentTime+.02
-    );
+gain.gain.setValueAtTime(.001,audioContext.currentTime);
 
-    gain.gain.exponentialRampToValueAtTime(
-      .001,
-      audioContext.currentTime+duration
-    );
+gain.gain.exponentialRampToValueAtTime(
+.15,
+audioContext.currentTime+.02
+);
 
-    osc.connect(gain);
-    gain.connect(audioContext.destination);
+gain.gain.exponentialRampToValueAtTime(
+.001,
+audioContext.currentTime+duration
+);
 
-    osc.start();
-    osc.stop(audioContext.currentTime+duration);
+osc.connect(gain);
+gain.connect(audioContext.destination);
 
-  }catch(e){}
+osc.start();
+osc.stop(audioContext.currentTime+duration);
+
+}catch(e){}
 
 }
 
 
 function playSound(type){
 
-  if(type==="correct"){
+if(type==="correct"){
+beep(660,.15);
+setTimeout(()=>beep(880,.2),150);
+}
 
-    beep(660,.15);
-    setTimeout(()=>beep(880,.2),150);
+if(type==="error"){
+beep(180,.3,"sawtooth");
+}
 
-  }
+if(type==="time"){
+beep(220,.2);
+setTimeout(()=>beep(180,.25),220);
+}
 
-  else if(type==="error"){
-
-    beep(180,.3,"sawtooth");
-
-  }
-
-  else if(type==="time"){
-
-    beep(220,.2);
-    setTimeout(()=>beep(180,.25),220);
-
-  }
-
-  else if(type==="win"){
-
-    beep(523,.15);
-    setTimeout(()=>beep(659,.15),150);
-    setTimeout(()=>beep(784,.25),300);
-
-  }
+if(type==="win"){
+beep(523,.15);
+setTimeout(()=>beep(659,.15),150);
+setTimeout(()=>beep(784,.25),300);
+}
 
 }
 
 
-/* =========================================================
-   CHỌN ĐỘI
-========================================================= */
+/* ================= CHỌN ĐỘI ================= */
 
 function selectTeam(el){
 
-  document.querySelectorAll(".team")
-    .forEach(x=>x.classList.remove("selected"));
+document.querySelectorAll(".team")
+.forEach(x=>x.classList.remove("selected"));
 
-  el.classList.add("selected");
+el.classList.add("selected");
 
-  selectedTeam=el.dataset.team;
+selectedTeam=el.dataset.team;
 
 }
 
 
-/* =========================================================
-   ROOM
-========================================================= */
+/* ================= ROOM ================= */
 
 function getRoomFromURL(){
 
-  const params=new URLSearchParams(location.search);
-
-  return params.get("room");
+return new URLSearchParams(location.search).get("room");
 
 }
 
 
 function createRoomCode(){
 
-  return Math.random()
-    .toString(36)
-    .substring(2,8)
-    .toUpperCase();
+return Math.random()
+.toString(36)
+.substring(2,8)
+.toUpperCase();
 
 }
 
 
-/* =========================================================
-   WEBSOCKET
-========================================================= */
+/* ================= WEBSOCKET ================= */
 
 function connectWS(){
 
-  const protocol=location.protocol==="https:" ? "wss" : "ws";
+const protocol=
+location.protocol==="https:"?"wss":"ws";
 
-  ws=new WebSocket(
-    `${protocol}://${location.host}`
-  );
+ws=new WebSocket(
+`${protocol}://${location.host}`
+);
 
-  ws.onopen=()=>{
+ws.onopen=()=>{
 
-    if(roomCode){
+if(roomCode){
 
-      ws.send(JSON.stringify({
-        type:"student",
-        room:roomCode,
-        team:selectedTeam
-      }));
+ws.send(JSON.stringify({
+type:"student",
+room:roomCode,
+team:selectedTeam
+}));
 
-    }
+}
 
-  };
+};
 
-  ws.onmessage=e=>{
 
-    let data;
+ws.onmessage=e=>{
 
-    try{
-      data=JSON.parse(e.data);
-    }catch{
-      return;
-    }
+let data;
 
-    if(data.type==="snapshot"){
+try{
+data=JSON.parse(e.data);
+}catch{
+return;
+}
 
-      data.players.forEach(p=>{
-        teacherPlayers[p.team]=p;
-      });
+if(data.type==="snapshot"){
 
-    }
+data.players.forEach(p=>{
+teacherPlayers[p.team]=p;
+});
 
-  };
+}
 
-  ws.onclose=()=>{
+};
 
-    setTimeout(connectWS,2000);
 
-  };
+ws.onclose=()=>{
+
+setTimeout(connectWS,2000);
+
+};
 
 }
 
 
 function sendState(reason="state"){
 
-  if(!ws || ws.readyState!==WebSocket.OPEN){
-    return;
-  }
+if(!ws||ws.readyState!==WebSocket.OPEN){
+return;
+}
 
-  ws.send(JSON.stringify({
+ws.send(JSON.stringify({
 
-    type:"state",
+type:"state",
 
-    room:roomCode,
+room:roomCode,
 
-    team:selectedTeam,
+team:selectedTeam,
 
-    name:studentName,
+name:studentName,
 
-    score:score,
+score:score,
 
-    wrongCount:wrongCount,
+wrongCount:wrongCount,
 
-    eliminated:eliminated,
+eliminated:eliminated,
 
-    stage:currentStage,
+stage:currentStage,
 
-    finished:gameFinished,
+finished:gameFinished,
 
-    gameStarted:gameStarted,
+gameStarted:gameStarted,
 
-    elapsed:elapsed,
+elapsed:elapsed,
 
-    time:gameFinished ? elapsed : null,
+time:gameFinished?elapsed:null,
 
-    online:true,
+online:true,
 
-    reason:reason
+reason:reason
 
-  }));
+}));
 
 }
 
 
-/* =========================================================
-   JOIN GAME
-========================================================= */
+/* ================= JOIN ================= */
 
 function joinGame(){
 
-  if(!selectedTeam){
+if(!selectedTeam){
 
-    $("joinFeedback").innerHTML=
-      `<div class="feedback bad">
-        ❌ Hãy chọn đội trước.
-      </div>`;
+$("joinFeedback").innerHTML=
+`<div class="feedback bad">
+❌ Hãy chọn đội trước.
+</div>`;
 
-    return;
+return;
+}
 
-  }
+studentName=$("studentName").value.trim()||"HS";
 
-  studentName=$("studentName").value.trim();
+roomCode=getRoomFromURL()||"sulfur-demo";
 
-  if(!studentName){
-    studentName="HS";
-  }
+$("joinCard").classList.add("hidden");
+$("gameArea").classList.remove("hidden");
 
-  roomCode=getRoomFromURL();
+$("teamDisplay").textContent=selectedTeam;
 
-  if(!roomCode){
+connectWS();
 
-    roomCode="sulfur-demo";
+renderStage();
 
-  }
-
-  $("joinCard").classList.add("hidden");
-  $("gameArea").classList.remove("hidden");
-
-  $("teamDisplay").textContent=selectedTeam;
-
-  connectWS();
-
-  renderStage();
-
-  sendState("join");
+sendState("join");
 
 }
 
 
-/* =========================================================
-   BẮT ĐẦU GAME
-========================================================= */
+/* ================= START ================= */
 
 function startGame(){
 
-  if(eliminated || gameFinished){
-    return;
-  }
+if(eliminated||gameFinished||gameStarted){
+return;
+}
 
-  if(gameStarted){
-    return;
-  }
+gameStarted=true;
+startTime=Date.now();
 
-  gameStarted=true;
-  startTime=Date.now();
+$("studentBadge").innerHTML=
+"🚀 <b>TRÒ CHƠI ĐÃ BẮT ĐẦU!</b> – Có 3 phút để giải 3 mật thư.";
 
-  $("studentBadge").innerHTML=
-    "🚀 <b>TRÒ CHƠI ĐÃ BẮT ĐẦU!</b> – Có 3 phút để giải 3 mật thư.";
+timerInterval=setInterval(updateTimer,250);
 
-  timerInterval=setInterval(updateTimer,250);
-
-  sendState("start");
+sendState("start");
 
 }
 
 
-/* =========================================================
-   TIMER
-========================================================= */
+/* ================= TIMER ================= */
 
 function updateTimer(){
 
-  if(!gameStarted || !startTime){
-    return;
-  }
+if(!gameStarted||!startTime){
+return;
+}
 
-  elapsed=Math.floor(
-    (Date.now()-startTime)/1000
-  );
+elapsed=Math.floor(
+(Date.now()-startTime)/1000
+);
 
-  const remaining=Math.max(
-    0,
-    TOTAL_TIME-elapsed
-  );
+const remaining=Math.max(
+0,
+TOTAL_TIME-elapsed
+);
 
-  $("timer").textContent=formatTime(remaining);
+$("timer").textContent=formatTime(remaining);
 
-  if(remaining<=20){
-    $("timer").classList.add("timer-danger");
-  }else{
-    $("timer").classList.remove("timer-danger");
-  }
+if(remaining<=20){
+$("timer").style.color="#ff6565";
+}else{
+$("timer").style.color="";
+}
 
-  if(elapsed>=TOTAL_TIME){
+if(elapsed>=TOTAL_TIME){
 
-    clearInterval(timerInterval);
+clearInterval(timerInterval);
 
-    gameFinished=true;
-    gameLocked=true;
+gameFinished=true;
+gameLocked=true;
 
-    $("timer").textContent="00:00";
+$("timer").textContent="00:00";
 
-    $("studentBadge").innerHTML=
-      "⏰ <b>HẾT THỜI GIAN!</b>";
+$("studentBadge").innerHTML=
+"⏰ <b>HẾT THỜI GIAN!</b>";
 
-    playSound("time");
+playSound("time");
 
-    sendState("timeout");
+sendState("timeout");
 
-  }
+}
 
 }
 
 
-/* =========================================================
-   KIỂM TRA CÓ ĐƯỢC TRẢ LỜI KHÔNG
-========================================================= */
+/* ================= CAN ANSWER ================= */
 
 function canAnswer(){
 
-  if(eliminated){
+if(eliminated||gameFinished){
+return false;
+}
 
-    return false;
+if(!gameStarted){
+startGame();
+}
 
-  }
+if(elapsed>=TOTAL_TIME){
+return false;
+}
 
-  if(gameFinished){
-
-    return false;
-
-  }
-
-  if(!gameStarted){
-
-    startGame();
-
-  }
-
-  if(elapsed>=TOTAL_TIME){
-
-    return false;
-
-  }
-
-  return true;
+return true;
 
 }
 
 
-/* =========================================================
-   CỘNG ĐIỂM
-========================================================= */
+/* ================= +20 ================= */
 
 function addPoint(){
 
-  score += 20;
+score+=20;
 
-  $("score").textContent=score;
+$("score").textContent=score;
 
-  playSound("correct");
+sendState("correct");
 
-  sendState("correct");
-
-}
-
-
-/* =========================================================
-   TRỪ ĐIỂM – PHẦN QUAN TRỌNG
-========================================================= */
-
-function processWrong(feedbackId){
-
-  /* MỖI LẦN GỌI HÀM NÀY = 1 LẦN SAI */
-
-  wrongCount++;
-
-  /* TRỪ ĐÚNG 5 ĐIỂM */
-
-  score=Math.max(0,score-5);
-
-  /* CẬP NHẬT NGAY TRÊN MÀN HÌNH */
-
-  $("score").textContent=score;
-
-  $("wrongCount").textContent=
-    `${wrongCount}/3`;
-
-
-  const f=$(feedbackId);
-
-
-  /* =====================================================
-     SAI LẦN 3 → LOẠI
-  ===================================================== */
-
-  if(wrongCount>=3){
-
-    eliminated=true;
-    gameLocked=true;
-    gameFinished=true;
-
-    if(f){
-
-      f.className="feedback bad";
-
-      f.innerHTML=
-        "🚫 <b>ĐỘI ĐÃ BỊ LOẠI!</b><br>" +
-        "Đội đã trả lời sai 3 lần.<br>" +
-        "Điểm hiện tại: <b>"+score+"</b>";
-
-    }
-
-    $("studentBadge").innerHTML=
-      "🚫 <b>ĐỘI ĐÃ BỊ LOẠI</b> – sai 3 lần.";
-
-    $("studentBadge").classList.add("eliminated");
-
-    document.querySelectorAll(
-      "#gameContent button,#gameContent input"
-    ).forEach(el=>{
-      el.disabled=true;
-    });
-
-    playSound("error");
-
-    sendState("eliminated");
-
-    return;
-
-  }
-
-
-  /* =====================================================
-     CHƯA BỊ LOẠI
-  ===================================================== */
-
-  if(f){
-
-    f.className="feedback bad";
-
-    f.innerHTML=
-      "❌ <b>Chưa chính xác!</b><br>" +
-      "<b>-5 điểm.</b><br>" +
-      "Điểm hiện tại: <b>"+score+"</b><br>" +
-      "Số lần sai: <b>"+wrongCount+"/3</b>";
-
-  }
-
-  playSound("error");
-
-  sendState("wrong");
+playSound("correct");
 
 }
 
 
-/* =========================================================
-   MẬT THƯ 1
-========================================================= */
+/* ================= -5 / 3 LẦN SAI ================= */
+
+function deductWrong(feedbackId){
+
+/*
+  MỖI LẦN GỌI HÀM = 1 LẦN SAI
+*/
+
+wrongCount++;
+
+/*
+  TRỪ 5 ĐIỂM
+  KHÔNG BAO GIỜ ÂM
+*/
+
+score=Math.max(0,score-5);
+
+/*
+  CẬP NHẬT NGAY
+*/
+
+$("score").textContent=score;
+$("wrongCount").textContent=wrongCount+"/3";
+
+const f=$(feedbackId);
+
+
+/* ===== SAI LẦN 3 ===== */
+
+if(wrongCount>=3){
+
+eliminated=true;
+gameLocked=true;
+gameFinished=true;
+
+if(f){
+
+f.className="feedback bad";
+
+f.innerHTML=
+"🚫 <b>ĐỘI ĐÃ BỊ LOẠI!</b><br>"+
+"Đã trả lời sai 3 lần.<br>"+
+"Điểm hiện tại: <b>"+score+"</b>";
+
+}
+
+$("studentBadge").innerHTML=
+"🚫 <b>ĐỘI ĐÃ BỊ LOẠI</b> – sai 3 lần.";
+
+document
+.querySelectorAll(
+"#gameContent button,#gameContent input"
+)
+.forEach(el=>{
+el.disabled=true;
+});
+
+sendState("eliminated");
+
+playSound("error");
+
+return;
+}
+
+
+/* ===== SAI LẦN 1 HOẶC 2 ===== */
+
+if(f){
+
+f.className="feedback bad";
+
+f.innerHTML=
+"❌ <b>Chưa chính xác!</b><br>"+
+"<b>-5 điểm.</b><br>"+
+"Điểm hiện tại: <b>"+score+"</b><br>"+
+"Số lần sai: <b>"+wrongCount+"/3</b>";
+
+}
+
+sendState("wrong");
+
+playSound("error");
+
+}
+
+
+/* ================= STAGE ================= */
+
+function renderStage(){
+
+if(currentStage===1){
+renderStage1();
+}
+
+if(currentStage===2){
+renderStage2();
+}
+
+if(currentStage===3){
+renderStage3();
+}
+
+}
+
+
+/* ================= MẬT THƯ 1 ================= */
 
 function renderStage1(){
 
-  $("gameContent").innerHTML=`
+$("gameContent").innerHTML=`
 
-    <div class="card">
+<div class="card">
 
-      <div class="stage-title">
-        🔐 MẬT THƯ 1 – CẤU TẠO NGUYÊN TỬ
-      </div>
+<div class="stage-title">
+🔐 MẬT THƯ 1 – CẤU TẠO NGUYÊN TỬ
+</div>
 
-      <p>
-        Hãy giải mã cấu tạo nguyên tử sulfur (S).
-      </p>
+<p>
+Hãy giải mã cấu tạo nguyên tử sulfur (S).
+</p>
 
-      <div class="question">
+<div class="question">
 
-        <h3>1. Viết cấu hình electron của nguyên tử S.</h3>
+<h3>
+1. Viết cấu hình electron của nguyên tử S.
+</h3>
 
-        <input
-          id="electronConfig"
-          type="text"
-          placeholder="Ví dụ định dạng: 1s2 2s2 2p6 3s2 3p4"
-        >
+<input
+id="electronConfig"
+type="text"
+placeholder="Ví dụ định dạng: 1s2 2s2 2p6 3s2 3p4"
+>
 
-      </div>
+</div>
 
+<div class="question">
 
-      <div class="question">
+<h3>
+2. Phân lớp chứa electron ngoài cùng thuộc:
+</h3>
 
-        <h3>2. Phân lớp chứa electron ngoài cùng thuộc:</h3>
+<input id="subS" type="text">
 
-        <input
-          id="subS"
-          type="text"
-        >
+</div>
 
-      </div>
+<div class="question">
 
+<h3>
+3. Phân lớp còn lại của lớp ngoài cùng là:
+</h3>
 
-      <div class="question">
+<input id="subP" type="text">
 
-        <h3>3. Phân lớp còn lại của lớp ngoài cùng là:</h3>
+</div>
 
-        <input
-          id="subP"
-          type="text"
-        >
+<div class="question">
 
-      </div>
+<h3>
+4. Điền electron vào 3 orbital của phân lớp 3p.
+</h3>
 
+<p>
+Nhấn từng ô:
+trống → ↑ → ↑↓ → trống
+</p>
 
-      <div class="question">
+<div class="orbitals">
 
-        <h3>
-          4. Điền electron vào 3 orbital của phân lớp 3p.
-        </h3>
+<div class="orbital"
+id="orb1"
+onclick="cycleOrbital(this)"></div>
 
-        <p class="small">
-          Nhấn từng ô để chuyển: trống → ↑ → ↑↓ → trống
-        </p>
+<div class="orbital"
+id="orb2"
+onclick="cycleOrbital(this)"></div>
 
-        <div class="orbitals">
+<div class="orbital"
+id="orb3"
+onclick="cycleOrbital(this)"></div>
 
-          <div
-            class="orbital"
-            id="orb1"
-            onclick="cycleOrbital(this)"
-          ></div>
+</div>
 
-          <div
-            class="orbital"
-            id="orb2"
-            onclick="cycleOrbital(this)"
-          ></div>
+</div>
 
-          <div
-            class="orbital"
-            id="orb3"
-            onclick="cycleOrbital(this)"
-          ></div>
+<button class="success"
+onclick="check1()">
+🔓 GIẢI MẬT THƯ 1
+</button>
 
-        </div>
+<div id="f1"></div>
 
-      </div>
+</div>
 
-
-      <button
-        class="success"
-        onclick="check1()"
-      >
-        🔓 GIẢI MẬT THƯ 1
-      </button>
-
-      <div id="f1"></div>
-
-    </div>
-
-  `;
+`;
 
 }
 
 
 function cycleOrbital(el){
 
-  const states=[
-    "",
-    "↑",
-    "↑↓"
-  ];
+const states=["","↑","↑↓"];
 
-  let index=states.indexOf(el.textContent);
+let index=states.indexOf(el.textContent);
 
-  index++;
+index++;
 
-  if(index>=states.length){
-    index=0;
-  }
+if(index>=states.length){
+index=0;
+}
 
-  el.textContent=states[index];
+el.textContent=states[index];
 
 }
 
 
-/* =========================================================
-   KIỂM TRA MẬT THƯ 1
-========================================================= */
+/* ================= CHECK 1 ================= */
 
 function check1(){
 
-  if(!canAnswer()){
-    return;
-  }
+if(!canAnswer())return;
 
-  const config=normalize(
-    $("electronConfig").value
-  );
+const config=normalize(
+$("electronConfig").value
+);
 
-  const subS=normalize(
-    $("subS").value
-  );
+const subS=normalize(
+$("subS").value
+);
 
-  const subP=normalize(
-    $("subP").value
-  );
+const subP=normalize(
+$("subP").value
+);
 
+const goodConfig=
+config==="1s22s22p63s23p4";
 
-  const goodConfig=
-    config==="1s22s22p63s23p4";
+const goodSub=
+subS==="3s"||
+subS==="3s2";
 
+const goodSubP=
+subP==="3p"||
+subP==="3p4";
 
-  const goodSub=
-    subS==="3s" ||
-    subS==="3s2";
+const orbitalValues=[
+$("orb1").textContent,
+$("orb2").textContent,
+$("orb3").textContent
+];
 
-
-  const goodSubP=
-    subP==="3p" ||
-    subP==="3p4";
-
-
-  const orbitalValues=[
-    $("orb1").textContent,
-    $("orb2").textContent,
-    $("orb3").textContent
-  ];
-
-
-  const goodOrbital=
-    orbitalValues[0]==="↑↓" &&
-    orbitalValues[1]==="↑" &&
-    orbitalValues[2]==="↑";
+const goodOrbital=
+orbitalValues[0]==="↑↓"&&
+orbitalValues[1]==="↑"&&
+orbitalValues[2]==="↑";
 
 
-  if(
-    goodConfig &&
-    goodSub &&
-    goodSubP &&
-    goodOrbital
-  ){
+if(
+goodConfig&&
+goodSub&&
+goodSubP&&
+goodOrbital
+){
 
-    if(!done1){
+if(!done1){
 
-      done1=true;
+done1=true;
 
-      addPoint();
+addPoint();
 
-    }
+}
 
-    $("f1").className="feedback good";
+$("f1").className="feedback good";
 
-    $("f1").innerHTML=
-      "🎉 <b>CHÍNH XÁC!</b> +20 điểm.<br>" +
-      "Mật thư 1 đã được giải.";
+$("f1").innerHTML=
+"🎉 <b>CHÍNH XÁC!</b> +20 điểm.<br>"+
+"Mật thư 1 đã được giải.";
 
-    currentStage=2;
+currentStage=2;
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-      renderStage2();
+renderStage2();
 
-      sendState("stage2");
+sendState("stage2");
 
-    },1000);
+},1000);
 
-  }
+}
+else{
 
-  else{
+deductWrong("f1");
 
-    processWrong("f1");
-
-  }
+}
 
 }
 
 
-/* =========================================================
-   MẬT THƯ 2
-========================================================= */
+/* ================= MẬT THƯ 2 ================= */
 
 function renderStage2(){
 
-  $("gameContent").innerHTML=`
+$("gameContent").innerHTML=`
 
-    <div class="card">
+<div class="card">
 
-      <div class="stage-title">
-        🔐 MẬT THƯ 2 – SỐ OXI HÓA
-      </div>
+<div class="stage-title">
+🔐 MẬT THƯ 2 – SỐ OXI HÓA
+</div>
 
-      <p>
-        Dựa vào cấu tạo electron của sulfur,
-        hãy dự đoán khả năng biến đổi của sulfur.
-      </p>
+<p>
+Dựa vào cấu tạo electron của sulfur,
+hãy dự đoán khả năng biến đổi của sulfur.
+</p>
 
+<div class="question">
 
-      <div class="question">
+<h3>
+1. Số oxi hóa cao nhất của sulfur là bao nhiêu?
+</h3>
 
-        <h3>
-          1. Số oxi hóa cao nhất của sulfur là bao nhiêu?
-        </h3>
+<input id="maxOx" type="text">
 
-        <input
-          id="maxOx"
-          type="text"
-        >
+</div>
 
-      </div>
+<div class="question">
 
+<h3>
+2. Sulfur có thể thể hiện cả hai tính chất nào?
+</h3>
 
-      <div class="question">
+<input id="redox" type="text">
 
-        <h3>
-          2. Sulfur có thể thể hiện cả hai tính chất nào?
-        </h3>
+</div>
 
-        <input
-          id="redox"
-          type="text"
-        >
+<div class="question">
 
-      </div>
+<h3>
+3. Các số oxi hóa thường gặp của sulfur:
+</h3>
 
+<input
+id="allOx"
+type="text"
+placeholder="-2, 0, +4, +6"
+>
 
-      <div class="question">
+</div>
 
-        <h3>
-          3. Các số oxi hóa thường gặp của sulfur:
-        </h3>
+<button class="success"
+onclick="check2()">
+🔓 GIẢI MẬT THƯ 2
+</button>
 
-        <input
-          id="allOx"
-          type="text"
-          placeholder="-2, 0, +4, +6"
-        >
+<div id="f2"></div>
 
-      </div>
+</div>
 
-
-      <button
-        class="success"
-        onclick="check2()"
-      >
-        🔓 GIẢI MẬT THƯ 2
-      </button>
-
-      <div id="f2"></div>
-
-    </div>
-
-  `;
+`;
 
 }
 
 
-/* =========================================================
-   KIỂM TRA MẬT THƯ 2
-========================================================= */
+/* ================= CHECK 2 ================= */
 
 function check2(){
 
-  if(!canAnswer()){
-    return;
-  }
+if(!canAnswer())return;
 
+const maxOx=normalize(
+$("maxOx").value
+);
 
-  const maxOx=normalize(
-    $("maxOx").value
-  );
+const redox=normalize(
+$("redox").value
+);
 
-  const redox=normalize(
-    $("redox").value
-  );
+const allOx=normalize(
+$("allOx").value
+);
 
-  const allOx=normalize(
-    $("allOx").value
-  );
+const goodMax=
+maxOx==="+6"||
+maxOx==="6";
 
+const goodRedox=
+redox==="cahai"||
+redox==="oxihoavakhua"||
+redox==="oxihoavakhu";
 
-  const goodMax=
-    maxOx==="+6" ||
-    maxOx==="6";
+const goodAll=
+allOx==="-2,0,+4,+6"||
+allOx==="-2,0,4,6"||
+allOx==="-2;0;+4;+6"||
+allOx==="-2;+0;+4;+6";
 
+if(
+goodMax&&
+goodRedox&&
+goodAll
+){
 
-  const goodRedox=
-    redox==="cahai" ||
-    redox==="oxihoavakhử" ||
-    redox==="oxihoavakhu" ||
-    redox==="oxihoava" ||
-    redox==="oxihoavakhử";
+if(!done2){
 
+done2=true;
 
-  const goodAll=
-    allOx==="-2,0,+4,+6" ||
-    allOx==="-2,0,4,6" ||
-    allOx==="-2;+0;+4;+6" ||
-    allOx==="-2;0;+4;+6" ||
-    allOx==="-2,0,+4,+6";
+addPoint();
 
+}
 
-  if(
-    goodMax &&
-    goodRedox &&
-    goodAll
-  ){
+$("f2").className="feedback good";
 
-    if(!done2){
+$("f2").innerHTML=
+"🎉 <b>CHÍNH XÁC!</b> +20 điểm.<br>"+
+"Mật thư 2 đã được giải.";
 
-      done2=true;
+currentStage=3;
 
-      addPoint();
+setTimeout(()=>{
 
-    }
+renderStage3();
 
-    $("f2").className="feedback good";
+sendState("stage3");
 
-    $("f2").innerHTML=
-      "🎉 <b>CHÍNH XÁC!</b> +20 điểm.<br>" +
-      "Mật thư 2 đã được giải.";
+},1000);
 
-    currentStage=3;
+}
+else{
 
-    setTimeout(()=>{
+deductWrong("f2");
 
-      renderStage3();
-
-      sendState("stage3");
-
-    },1000);
-
-  }
-
-  else{
-
-    processWrong("f2");
-
-  }
+}
 
 }
 
 
-/* =========================================================
-   MẬT THƯ 3
-========================================================= */
+/* ================= MẬT THƯ 3 ================= */
 
 function renderStage3(){
 
-  $("gameContent").innerHTML=`
+$("gameContent").innerHTML=`
 
-    <div class="card">
+<div class="card">
 
-      <div class="stage-title">
-        🔐 MẬT THƯ 3 – DỰ ĐOÁN TÍNH CHẤT
-      </div>
+<div class="stage-title">
+🔐 MẬT THƯ 3 – DỰ ĐOÁN TÍNH CHẤT
+</div>
 
-      <p>
-        Ở điều kiện thường, sulfur tồn tại dưới dạng
-        phân tử S₈. Giữa các phân tử có lực tương tác yếu.
-      </p>
+<p>
+Ở điều kiện thường, sulfur tồn tại dưới dạng
+phân tử S₈. Giữa các phân tử có lực tương tác yếu.
+</p>
 
-      <div class="question">
+<div class="question">
 
-        <h3>
-          Dự đoán nhiệt độ nóng chảy của sulfur:
-          <br>
-          <b>CAO hay THẤP?</b>
-        </h3>
+<h3>
+Dự đoán nhiệt độ nóng chảy của sulfur:
+<br>
+<b>CAO hay THẤP?</b>
+</h3>
 
-        <input
-          id="mp"
-          type="text"
-        >
+<input id="mp" type="text">
 
-      </div>
+</div>
 
+<button class="success"
+onclick="check3()">
+🔓 GIẢI MẬT THƯ 3
+</button>
 
-      <button
-        class="success"
-        onclick="check3()"
-      >
-        🔓 GIẢI MẬT THƯ 3
-      </button>
+<div id="f3"></div>
 
-      <div id="f3"></div>
+</div>
 
-    </div>
-
-  `;
+`;
 
 }
 
 
-/* =========================================================
-   KIỂM TRA MẬT THƯ 3
-========================================================= */
+/* ================= CHECK 3 ================= */
 
 function check3(){
 
-  if(!canAnswer()){
-    return;
-  }
+if(!canAnswer())return;
 
+const answer=normalize(
+$("mp").value
+);
 
-  const answer=normalize(
-    $("mp").value
-  );
+const good=
+answer==="thap"||
+answer==="thap.";
 
+if(good){
 
-  const good=
-    answer==="thap" ||
-    answer==="thap.";
+if(!done3){
 
+done3=true;
 
-  if(good){
+addPoint();
 
-    if(!done3){
+}
 
-      done3=true;
+finishGame();
 
-      addPoint();
+}
+else{
 
-    }
+deductWrong("f3");
 
-    finishGame();
-
-  }
-
-  else{
-
-    processWrong("f3");
-
-  }
+}
 
 }
 
 
-/* =========================================================
-   HOÀN THÀNH
-========================================================= */
+/* ================= FINISH ================= */
 
 function finishGame(){
 
-  if(gameFinished){
-    return;
-  }
+if(gameFinished)return;
 
-  gameFinished=true;
+gameFinished=true;
+currentStage=4;
 
-  currentStage=4;
+elapsed=Math.floor(
+(Date.now()-startTime)/1000
+);
 
-  elapsed=Math.floor(
-    (Date.now()-startTime)/1000
-  );
+clearInterval(timerInterval);
 
-  clearInterval(timerInterval);
+gameLocked=true;
 
-  gameLocked=true;
+$("timer").textContent=
+formatTime(elapsed);
 
-  $("timer").textContent=
-    formatTime(
-      Math.min(elapsed,TOTAL_TIME)
-    );
+$("studentBadge").innerHTML=
+"🏆 <b>ĐÃ GIẢI MÃ THÀNH CÔNG!</b>";
 
-  $("studentBadge").innerHTML=
-    "🏆 <b>ĐÃ GIẢI MÃ THÀNH CÔNG!</b>";
+$("gameContent").innerHTML=`
 
-  $("gameContent").innerHTML=`
+<div class="card">
 
-    <div class="card">
+<div class="winner">
 
-      <div class="winner">
+<h2>🎉 CHÚC MỪNG!</h2>
 
-        <h2>🎉 CHÚC MỪNG!</h2>
+<p>
+Đội <b>${selectedTeam}</b>
+đã giải được cả 3 mật thư.
+</p>
 
-        <p>
-          Đội <b>${selectedTeam}</b>
-          đã giải được cả 3 mật thư.
-        </p>
+<div class="code-display">
 
-        <div class="code-display">
+<div class="code-box">1</div>
+<div class="code-box">1</div>
+<div class="code-box">3</div>
 
-          <div class="code-box">1</div>
-          <div class="code-box">1</div>
-          <div class="code-box">3</div>
+</div>
 
-        </div>
+<h2>
+🔐 MÃ THOÁT PHÒNG:
+<span style="color:#ffd54a">113</span>
+</h2>
 
-        <h2>
-          🔐 MÃ THOÁT PHÒNG:
-          <span style="color:#ffd54a">113</span>
-        </h2>
+<p>
+Sulfur có nhiệt độ nóng chảy khoảng
+<b>113°C</b>.
+</p>
 
-        <p>
-          Sulfur có nhiệt độ nóng chảy khoảng
-          <b>113°C</b>.
-        </p>
+<p>
+⭐ Điểm: <b>${score}</b>
+</p>
 
-        <p>
-          ⭐ Điểm: <b>${score}</b>
-        </p>
+<p>
+⏱️ Thời gian:
+<b>${formatTime(elapsed)}</b>
+</p>
 
-        <p>
-          ⏱️ Thời gian:
-          <b>${formatTime(elapsed)}</b>
-        </p>
+</div>
 
-      </div>
+</div>
 
-    </div>
+`;
 
-  `;
+playSound("win");
 
-  playSound("win");
-
-  sendState("finished");
+sendState("finished");
 
 }
 
 
-/* =========================================================
-   TEACHER MODE
-========================================================= */
+/* ================= TEACHER ================= */
 
 function isTeacher(){
 
-  const params=new URLSearchParams(location.search);
-
-  return params.get("teacher")==="1";
+return new URLSearchParams(location.search)
+.get("teacher")==="1";
 
 }
 
 
 function initTeacher(){
 
-  $("studentApp").classList.add("hidden");
-  $("teacherApp").classList.remove("hidden");
+$("studentApp").classList.add("hidden");
+$("teacherApp").classList.remove("hidden");
 
-  roomCode=
-    getRoomFromURL() ||
-    createRoomCode();
+roomCode=
+getRoomFromURL()||
+createRoomCode();
 
-  $("teacherRoom").textContent=roomCode;
+$("teacherRoom").textContent=roomCode;
 
-  connectTeacherWS();
+connectTeacherWS();
 
-  renderTeacher();
+renderTeacher();
 
 }
 
 
 function connectTeacherWS(){
 
-  const protocol=
-    location.protocol==="https:"
-      ? "wss"
-      : "ws";
+const protocol=
+location.protocol==="https:"?"wss":"ws";
 
-  ws=new WebSocket(
-    `${protocol}://${location.host}`
-  );
+ws=new WebSocket(
+`${protocol}://${location.host}`
+);
 
+ws.onopen=()=>{
 
-  ws.onopen=()=>{
+ws.send(JSON.stringify({
+type:"teacher",
+room:roomCode
+}));
 
-    ws.send(JSON.stringify({
-      type:"teacher",
-      room:roomCode
-    }));
+};
 
-  };
+ws.onmessage=e=>{
 
+let data;
 
-  ws.onmessage=e=>{
+try{
+data=JSON.parse(e.data);
+}catch{
+return;
+}
 
-    let data;
+if(data.type==="snapshot"){
 
-    try{
-      data=JSON.parse(e.data);
-    }catch{
-      return;
-    }
+teacherPlayers={};
 
+data.players.forEach(p=>{
+teacherPlayers[p.team]=p;
+});
 
-    if(data.type==="snapshot"){
+renderTeacher();
 
-      teacherPlayers={};
+}
 
-      data.players.forEach(p=>{
-        teacherPlayers[p.team]=p;
-      });
+if(data.type==="state"){
 
-      renderTeacher();
+teacherPlayers[data.team]=data;
 
-    }
+renderTeacher();
 
+}
 
-    if(data.type==="state"){
+};
 
-      teacherPlayers[data.team]=data;
+ws.onclose=()=>{
 
-      renderTeacher();
+setTimeout(
+connectTeacherWS,
+2000
+);
 
-    }
-
-  };
-
-
-  ws.onclose=()=>{
-
-    setTimeout(
-      connectTeacherWS,
-      2000
-    );
-
-  };
+};
 
 }
 
 
-/* =========================================================
-   TEACHER TABLE
-========================================================= */
+/* ================= TEACHER TABLE ================= */
 
 function renderTeacher(){
 
-  const players=
-    Object.values(teacherPlayers);
+const players=
+Object.values(teacherPlayers);
 
+const sorted=
+[...players].sort((a,b)=>{
 
-  const sorted=
-    [...players].sort((a,b)=>{
+if((b.score||0)!==(a.score||0)){
+return (b.score||0)-(a.score||0);
+}
 
-      if((b.score||0)!==(a.score||0)){
-        return (b.score||0)-(a.score||0);
-      }
+return (a.elapsed||999999)-
+(a.elapsed||999999);
 
-      return (a.elapsed||999999)-
-             (b.elapsed||999999);
+});
 
-    });
+$("teamCount").textContent=
+players.length;
 
+$("finishedCount").textContent=
+players.filter(p=>p.finished).length;
 
-  $("teamCount").textContent=
-    players.length;
+$("playingCount").textContent=
+players.filter(
+p=>!p.finished&&!p.eliminated
+).length;
 
+$("eliminatedCount").textContent=
+players.filter(p=>p.eliminated).length;
 
-  $("finishedCount").textContent=
-    players.filter(p=>p.finished).length;
+let html="";
 
+sorted.forEach((p,index)=>{
 
-  $("playingCount").textContent=
-    players.filter(
-      p=>!p.finished&&!p.eliminated
-    ).length;
+let status="⏳ Chờ";
 
+if(p.eliminated){
+status="🚫 Bị loại";
+}
+else if(p.finished){
+status="🏆 Hoàn thành";
+}
+else if(p.gameStarted){
+status="🟢 Đang chơi";
+}
 
-  $("eliminatedCount").textContent=
-    players.filter(
-      p=>p.eliminated
-    ).length;
+let stage=p.stage||1;
 
+let stageText=
+stage>=4
+?"Hoàn thành"
+:"Mật thư "+stage;
 
-  let html="";
+html+=`
 
+<tr class="${p.eliminated?"eliminated-row":""}">
 
-  sorted.forEach((p,index)=>{
+<td>🏅 ${index+1}</td>
 
-    let status="⏳ Chờ";
+<td><b>${p.team||"---"}</b></td>
 
-    if(p.eliminated){
-      status="🚫 Bị loại";
-    }
-    else if(p.finished){
-      status="🏆 Hoàn thành";
-    }
-    else if(p.gameStarted){
-      status="🟢 Đang chơi";
-    }
+<td><b>${p.score||0}</b></td>
 
+<td>${p.wrongCount||0}/3</td>
 
-    let stage=p.stage||1;
+<td>${status}</td>
 
-    let stageText=
-      stage>=4
-        ? "Hoàn thành"
-        : "Mật thư "+stage;
+<td>${stageText}</td>
 
+<td>
+${p.gameStarted
+?formatTime(p.elapsed||0)
+:"--"}
+</td>
 
-    html+=`
+</tr>
 
-      <tr class="${p.eliminated ? "eliminated-row" : ""}">
+`;
 
-        <td class="rank">
-          ${index+1}
-        </td>
+});
 
-        <td>
-          <b>${p.team||"---"}</b>
-        </td>
+if(!html){
 
-        <td>
-          <b>${p.score||0}</b>
-        </td>
+html=`
 
-        <td>
-          ${p.wrongCount||0}/3
-        </td>
+<tr>
+<td colspan="7">
+Chưa có đội nào tham gia.
+</td>
+</tr>
 
-        <td>
-          ${status}
-        </td>
+`;
 
-        <td>
-          ${stageText}
-        </td>
+}
 
-        <td>
-          ${p.finished
-            ? formatTime(p.elapsed||0)
-            : (
-              p.gameStarted
-                ? formatTime(p.elapsed||0)
-                : "--"
-            )
-          }
-        </td>
+$("teacherTableBody").innerHTML=html;
 
-      </tr>
+const finished=
+sorted.filter(
+p=>p.finished&&!p.eliminated
+);
 
-    `;
+if(finished.length){
 
-  });
+const winner=finished[0];
 
+$("winnerBox").innerHTML=`
 
-  if(!html){
+<div class="winner">
 
-    html=`
+<h2>🏆 ĐỘI DẪN ĐẦU</h2>
 
-      <tr>
-        <td colspan="7">
-          Chưa có đội nào tham gia.
-        </td>
-      </tr>
+<h1>${winner.team}</h1>
 
-    `;
+<p>
+Điểm: <b>${winner.score}</b>
+</p>
 
-  }
+<p>
+Thời gian:
+<b>${formatTime(winner.elapsed||0)}</b>
+</p>
 
+</div>
 
-  $("teacherTableBody").innerHTML=html;
+`;
 
+}
+else{
 
-  /* WINNER */
+$("winnerBox").innerHTML="";
 
-  const finished=
-    sorted.filter(
-      p=>p.finished&&!p.eliminated
-    );
-
-
-  if(finished.length){
-
-    const winner=finished[0];
-
-    $("winnerBox").innerHTML=`
-
-      <div class="winner">
-
-        <h2>
-          🏆 ĐỘI ĐANG DẪN ĐẦU
-        </h2>
-
-        <h1>
-          ${winner.team}
-        </h1>
-
-        <p>
-          Điểm:
-          <b>${winner.score}</b>
-        </p>
-
-        <p>
-          Thời gian:
-          <b>${formatTime(winner.elapsed||0)}</b>
-        </p>
-
-      </div>
-
-    `;
-
-  }
-  else{
-
-    $("winnerBox").innerHTML="";
-
-  }
+}
 
 }
 
 
-/* =========================================================
-   TẠO PHÒNG MỚI
-========================================================= */
+/* ================= NEW ROOM ================= */
 
 function newRoom(){
 
-  roomCode=createRoomCode();
+roomCode=createRoomCode();
 
-  $("teacherRoom").textContent=roomCode;
+$("teacherRoom").textContent=roomCode;
 
-  teacherPlayers={};
+teacherPlayers={};
 
-  renderTeacher();
+renderTeacher();
 
-  history.replaceState(
-    null,
-    "",
-    "?teacher=1&room="+roomCode
-  );
+history.replaceState(
+null,
+"",
+"?teacher=1&room="+roomCode
+);
 
-  if(ws){
+if(ws){
 
-    try{
-      ws.close();
-    }catch(e){}
+try{
+ws.close();
+}catch(e){}
 
-  }
+}
 
-  connectTeacherWS();
+connectTeacherWS();
 
 }
 
 
-/* =========================================================
-   COPY LINK HỌC SINH
-========================================================= */
+/* ================= COPY LINK ================= */
 
 function copyStudentLink(){
 
-  const link=
-    location.origin+
-    "/?room="+
-    encodeURIComponent(roomCode);
+const link=
+location.origin+
+"/?room="+
+encodeURIComponent(roomCode);
 
+navigator.clipboard
+.writeText(link)
+.then(()=>{
 
-  navigator.clipboard
-    .writeText(link)
-    .then(()=>{
+$("studentLinkBox")
+.classList.remove("hidden");
 
-      $("studentLinkBox")
-        .classList.remove("hidden");
+$("studentLinkBox").innerHTML=`
 
-      $("studentLinkBox").innerHTML=`
+<b>🔗 LINK HỌC SINH</b>
 
-        <b>🔗 LINK HỌC SINH</b>
+<p>${link}</p>
 
-        <p>
-          ${link}
-        </p>
+`;
 
-        <p class="small">
-          Học sinh quét QR hoặc mở link này
-          trên điện thoại.
-        </p>
-
-      `;
-
-    });
+});
 
 }
 
 
-/* =========================================================
-   KHỞI ĐỘNG
-========================================================= */
+/* ================= START ================= */
 
 window.addEventListener(
-  "load",
-  ()=>{
+"load",
+()=>{
 
-    if(isTeacher()){
+if(isTeacher()){
 
-      initTeacher();
+initTeacher();
 
-    }
-    else{
+}
+else{
 
-      const room=
-        getRoomFromURL();
+const room=getRoomFromURL();
 
-      if(room){
+if(room){
+roomCode=room;
+}
 
-        roomCode=room;
+}
 
-      }
-
-    }
-
-  }
-);
+});
 
 </script>
 
