@@ -256,7 +256,21 @@ function cycleOrbital(el){
   const current=el.textContent.trim(); let i=order.indexOf(current); if(i<0)i=0;
   el.textContent=order[(i+1)%order.length];
 }
-function normalize(s){return s.toLowerCase().replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
+function normalize(s){
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .replace(/đ/g,'d')
+    .replace(/\s+/g,'')
+    .replace(/[₁]/g,'1')
+    .replace(/[₂]/g,'2')
+    .replace(/[₃]/g,'3')
+    .replace(/[₄]/g,'4')
+    .replace(/[⁶]/g,'6')
+    .replace(/[⁺]/g,'+')
+    .replace(/−/g,'-');
+}{return s.toLowerCase().replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
 function ensureGame(){
   if(!gameStarted){startGame();}
   if(gameLocked){return false;}
