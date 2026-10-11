@@ -111,7 +111,7 @@ textarea{width:100%;min-height:90px;padding:12px;border:2px solid #bfd0d6;border
 <input id="subP" class="orb-sublevel-input" type="text" placeholder="Phân lớp electron">
 </div>
 </div>
-<div class="help">Nhấp vào từng ô để điền mũi tên: trống → ↑ → ↑↓ → trống. Với 3p, hãy tuân thủ quy tắc Hund.</div>
+
 </div>
 
 <div id="f1" class="feedback"></div>
@@ -280,7 +280,7 @@ function cycleOrbital(el){
   const current=el.textContent.trim(); let i=order.indexOf(current); if(i<0)i=0;
   el.textContent=order[(i+1)%order.length];
 }
-function normalize(s){return s.toLowerCase().replace(/ôxi/g,'oxi').replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
+function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/ôxi/g,'oxi').replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
 function ensureGame(){
   // Không tự khởi động khi học sinh bấm trả lời.
   // Chỉ nút "BẮT ĐẦU TRÒ CHƠI – 3 PHÚT" mới bắt đầu tính giờ.
@@ -323,15 +323,15 @@ function check2(){
  let goodMax=/^\+?6$/.test(ox);
  let goodMin=/^-2$/.test(oxmin);
  let goodAll=all.includes('-2')&&all.includes('0')&&all.includes('+4')&&all.includes('+6');
- let goodRed=red.includes('cảhai')||red.includes('cahai')||((red.includes('oxihoa'))&&(red.includes('khu')));
+ let goodRed=red.includes('cahai')||(red.includes('oxihoa')&&red.includes('khu'))||red.includes('vuavuaoxihoavuakhu')||red.includes('vuaoxihoavuakhu');
  let f=document.getElementById('f2');
  if(goodMax&&goodMin&&goodAll&&goodRed){if(!done2){add(20);done2=true}f.className='feedback good';f.innerHTML='✅ <b>Giải đúng Mật thư 2!</b><br>Đã xác định đúng số oxi hóa cao nhất (+6), thấp nhất (−2), tính oxi hóa – tính khử và các số oxi hóa thường gặp.';document.getElementById('next2').style.display='block';playSound('success');sendState('stage2');}
  else{processWrong('f2');}
 }
 function check3(){
  if(!ensureGame())return;
- let m=document.getElementById('mp').value.toLowerCase().trim();
- let goodM=m.includes('thấp')||m.includes('thap');
+ let m=normalize(document.getElementById('mp').value);
+ let goodM=m.includes('thap');
  let f=document.getElementById('f3');
  if(goodM){if(!done3){add(20);done3=true}f.className='feedback good';f.innerHTML='✅ <b>Giải đúng Mật thư 3!</b>';document.getElementById('next3').style.display='block';playSound('success');sendState('stage3');}
  else{processWrong('f3');}
