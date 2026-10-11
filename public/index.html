@@ -281,7 +281,18 @@ function cycleOrbital(el){
 }
 function normalize(s){return s.toLowerCase().replace(/ôxi/g,'oxi').replace(/\s+/g,'').replace(/[₁]/g,'1').replace(/[₂]/g,'2').replace(/[₃]/g,'3').replace(/[₄]/g,'4').replace(/[⁶]/g,'6').replace(/[⁺]/g,'+').replace(/−/g,'-')}
 function ensureGame(){
-  if(!gameStarted){startGame();}
+  // Không tự khởi động khi học sinh bấm trả lời.
+  // Chỉ nút "BẮT ĐẦU TRÒ CHƠI – 3 PHÚT" mới bắt đầu tính giờ.
+  if(!gameStarted){
+    const badge=document.getElementById('studentModeBadge');
+    if(badge) badge.textContent='⏳ Hãy bấm “BẮT ĐẦU TRÒ CHƠI – 3 PHÚT” trước khi trả lời!';
+    const activeFeedback=document.getElementById('f'+currentStage);
+    if(activeFeedback){
+      activeFeedback.className='feedback bad';
+      activeFeedback.textContent='⏳ Em cần bấm “BẮT ĐẦU TRÒ CHƠI – 3 PHÚT” trước khi làm mật thư. Thời gian chưa bắt đầu tính.';
+    }
+    return false;
+  }
   if(gameLocked){return false;}
   if(remainingSeconds()<=0){updateTimer();return false;}
   return true;
