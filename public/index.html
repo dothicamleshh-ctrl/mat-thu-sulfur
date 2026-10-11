@@ -14,7 +14,7 @@ header h1{margin:5px 0;font-size:clamp(28px,6vw,46px)}
 select{padding:8px;border:0;border-radius:8px;font-size:16px}
 .timer{text-align:center;background:#fff8d9;color:#7a5b00;border-radius:12px;padding:9px;font-size:18px;font-weight:bold;margin:10px 0}.progress{display:flex;gap:7px;margin:13px 0}.progress span{height:9px;flex:1;background:#ffffff35;border-radius:8px}.progress .on{background:#ffd166}
 .card{background:#fff;border-radius:22px;padding:22px;box-shadow:0 15px 40px #0005}
-.stage{display:none}.stage.active{display:block}
+.stage{display:none}.stage.active{display:block}body:not(.game-started) .stage{display:none!important}
 .badge{display:inline-block;background:#087f8c;color:#fff;padding:7px 14px;border-radius:20px;font-weight:bold}
 h2{color:#075b70;margin:10px 0 15px}
 .clue{background:#f0fafb;border-left:5px solid #087f8c;padding:15px;border-radius:12px;font-size:18px;line-height:1.55}
@@ -246,6 +246,7 @@ updateTimer();
 function startGame(){
   if(gameStarted)return;
   gameStarted=true; gameLocked=false; totalStartTime=Date.now(); totalFinishedSeconds=0;
+  document.body.classList.add('game-started');
   document.getElementById('studentModeBadge').textContent='📱 Đang chơi – '+document.getElementById('team').value;
   playSound('success'); sendState('start'); updateTimer();
 }
